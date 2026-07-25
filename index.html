@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uzkopšana un sīkie remontdarbi Jelgavā | Anelika SIA</title>
+  <meta name="description" content="Telpu uzkopšana, teritoriju kopšana, zāles pļaušana, meistars uz stundu, sīkie remontdarbi un saimnieciskie darbi Jelgavā, Jelgavas novadā un Rīgā.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#183c37">
+  <link rel="canonical" href="https://anelika.lv/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="lv_LV">
+  <meta property="og:title" content="Anelika SIA — uzkopšana un saimnieciskie darbi">
+  <meta property="og:description" content="Viens kontakts telpu uzkopšanai, teritoriju kopšanai un sīkiem remontdarbiem.">
+  <meta property="og:url" content="https://anelika.lv/">
+
+  <style>
+    :root{
+      --ink:#17312d;
+      --muted:#60716e;
+      --green:#183c37;
+      --green-2:#24584f;
+      --sand:#d8b37a;
+      --sand-soft:#f4eadb;
+      --bg:#f7faf9;
+      --card:#fff;
+      --line:#dce6e3;
+      --shadow:0 18px 50px rgba(21,54,49,.10);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    .wrap{max-width:1140px;margin:auto;padding:0 22px}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(247,250,249,.93);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.10em}
+    .brandmark{
+      width:36px;height:36px;border-radius:10px;
+      display:grid;place-items:center;background:var(--green);color:#fff;
+      letter-spacing:0;font-size:18px;
+    }
+    .navlinks{display:flex;gap:24px;color:var(--muted);font-size:14px}
+    .call{
+      background:var(--green);color:#fff;padding:11px 17px;
+      border-radius:999px;font-weight:800;
+    }
+    .hero{
+      padding:82px 0 68px;
+      background:
+        radial-gradient(circle at 88% 18%,rgba(216,179,122,.30),transparent 29%),
+        radial-gradient(circle at 4% 95%,rgba(36,88,79,.12),transparent 27%),
+        linear-gradient(135deg,#edf5f2 0%,#fbfcfb 60%,#f4eadb 100%);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:42px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;background:#fff;
+      border:1px solid var(--line);padding:8px 12px;border-radius:999px;
+      font-size:13px;font-weight:800;
+    }
+    h1{
+      font-size:clamp(42px,6.4vw,72px);line-height:1.02;
+      margin:22px 0 18px;letter-spacing:-.045em;
+    }
+    .lead{font-size:20px;color:var(--muted);max-width:720px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:50px;padding:13px 20px;border-radius:13px;
+      font-weight:850;border:1px solid var(--green);
+    }
+    .btn.primary{background:var(--green);color:#fff}
+    .btn.secondary{background:#fff}
+    .hero-card{
+      background:#fff;border:1px solid var(--line);border-radius:26px;
+      padding:28px;box-shadow:var(--shadow);
+    }
+    .hero-card h3{font-size:24px;margin:0 0 15px}
+    .tick{display:flex;gap:11px;margin:13px 0;color:var(--muted)}
+    .tick b{color:var(--green-2)}
+    section{padding:72px 0}
+    .section-head{max-width:780px;margin-bottom:30px}
+    h2{font-size:clamp(31px,4.2vw,47px);line-height:1.08;margin:0 0 12px;letter-spacing:-.025em}
+    h3{line-height:1.22}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:var(--card);border:1px solid var(--line);
+      border-radius:var(--radius);padding:25px;
+    }
+    .card h3{margin:10px 0 9px;font-size:21px}
+    .icon{font-size:30px}
+    .examples{padding:0;margin:15px 0 0;list-style:none;color:var(--muted)}
+    .examples li{padding:5px 0;border-bottom:1px dashed var(--line)}
+    .examples li:last-child{border-bottom:0}
+    .why{background:var(--green);color:#fff}
+    .why .muted{color:#cad8d5}
+    .why .card{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.15)}
+    .process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
+    .step{
+      position:relative;background:#fff;border:1px solid var(--line);
+      border-radius:var(--radius);padding:26px;
+    }
+    .step:before{
+      counter-increment:step;content:counter(step);
+      display:grid;place-items:center;width:37px;height:37px;border-radius:50%;
+      background:var(--sand-soft);font-weight:900;margin-bottom:18px;
+    }
+    .areas{display:flex;flex-wrap:wrap;gap:10px}
+    .pill{background:var(--sand-soft);padding:10px 14px;border-radius:999px;font-weight:800}
+    .notice{
+      margin-top:22px;padding:16px 18px;border-radius:15px;
+      background:#fff;border:1px solid var(--line);color:var(--muted);
+    }
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+    summary{cursor:pointer;font-weight:850}
+    details p{margin-bottom:0;color:var(--muted)}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .contact-box{background:#fff;border:1px solid var(--line);border-radius:24px;padding:29px}
+    .contact-row{padding:13px 0;border-bottom:1px solid var(--line)}
+    .contact-row:last-child{border-bottom:0}
+    footer{padding:29px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+    .mobilebar{display:none}
+    @media(max-width:860px){
+      .navlinks{display:none}
+      .hero{padding:50px 0 54px}
+      .hero-grid,.contact{grid-template-columns:1fr}
+      .grid,.process{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr}
+      body{padding-bottom:72px}
+      .mobilebar{
+        display:grid;grid-template-columns:1fr 1fr;position:fixed;
+        bottom:0;left:0;right:0;z-index:40;background:#fff;
+        border-top:1px solid var(--line);
+      }
+      .mobilebar a{padding:15px;text-align:center;font-weight:850}
+      .mobilebar a:first-child{background:var(--green);color:#fff}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Anelika SIA",
+    "url":"https://anelika.lv/",
+    "telephone":"+37129752319",
+    "email":"anelikasia@gmail.com",
+    "description":"Telpu uzkopšana, teritoriju kopšana, sīkie remontdarbi un saimnieciskie pakalpojumi Jelgavā, Jelgavas novadā un Rīgā.",
+    "areaServed":["Jelgava","Jelgavas novads","Ozolnieki","Rīga"],
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Jelgava",
+      "postalCode":"LV-3001",
+      "addressCountry":"LV"
+    },
+    "openingHours":["Mo-Fr 08:00-20:00"],
+    "hasOfferCatalog":{
+      "@type":"OfferCatalog",
+      "name":"Anelika pakalpojumi",
+      "itemListElement":[
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Telpu uzkopšana"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Teritoriju kopšana un zāles pļaušana"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Meistars uz stundu un sīkie remontdarbi"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sīkie santehnikas darbi"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Montāžas un sadzīves darbi"}}
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top"><span class="brandmark">A</span><span>ANELIKA</span></a>
+      <div class="navlinks">
+        <a href="#pakalpojumi">Pakalpojumi</a>
+        <a href="#ka">Kā strādājam</a>
+        <a href="#kontakti">Kontakti</a>
+      </div>
+      <a class="call" href="tel:+37129752319">Zvanīt: 29752319</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Uzkopšana • teritorijas • sīkie remonti</span>
+        <h1>Viens kontakts mājai, birojam un teritorijai</h1>
+        <p class="lead">Telpu uzkopšana, teritoriju kopšana, meistars uz stundu un dažādi saimnieciskie darbi Jelgavā, Jelgavas novadā un Rīgā.</p>
+        <div class="actions">
+          <a class="btn primary" href="tel:+37129752319">Pārrunāt darbu</a>
+          <a class="btn secondary" href="mailto:anelikasia@gmail.com?subject=Pakalpojuma%20pieprasījums">Nosūtīt pieprasījumu</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>Ko var uzticēt Anelika</h3>
+        <div class="tick"><b>✓</b><span>Dzīvokļu, māju un biroju uzkopšanu</span></div>
+        <div class="tick"><b>✓</b><span>Zāles pļaušanu un teritorijas sakopšanu</span></div>
+        <div class="tick"><b>✓</b><span>Sīkus remontus un montāžas darbus</span></div>
+        <div class="tick"><b>✓</b><span>Nelielus santehnikas un sadzīves darbus</span></div>
+        <div class="tick"><b>✓</b><span>Regulāru īpašuma uzturēšanu</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="pakalpojumi">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Pakalpojumi vienuviet</h2>
+        <p class="muted">Nav jāmeklē atsevišķs cilvēks katram sīkumam. Aprakstiet situāciju — pateiksim, ko varam izdarīt un kāda būs cena.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon">🧹</div>
+          <h3>Telpu uzkopšana</h3>
+          <p class="muted">Vienreizēja vai regulāra uzkopšana privātiem klientiem un uzņēmumiem.</p>
+          <ul class="examples">
+            <li>Dzīvokļi, mājas un biroji</li>
+            <li>Ģenerāltīrīšana</li>
+            <li>Uzkopšana pēc remonta</li>
+            <li>Logu un grīdu mazgāšana</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌿</div>
+          <h3>Teritoriju kopšana</h3>
+          <p class="muted">Pagalma un uzņēmuma teritorijas sakopšana sezonāli vai regulāri.</p>
+          <ul class="examples">
+            <li>Zāles pļaušana</li>
+            <li>Lapu un zaru savākšana</li>
+            <li>Teritorijas sakopšana</li>
+            <li>Sniega tīrīšana pēc vienošanās</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon">🔧</div>
+          <h3>Meistars uz stundu</h3>
+          <p class="muted">Nelieli remonti un sadzīves darbi, kuriem nav vajadzīga liela būvbrigāde.</p>
+          <ul class="examples">
+            <li>Plauktu, karnīžu un stiprinājumu montāža</li>
+            <li>Mēbeļu salikšana un regulēšana</li>
+            <li>Nelieli tapešu un apdares labojumi</li>
+            <li>Silikona un blīvējumu atjaunošana</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon">🚰</div>
+          <h3>Sīkie santehnikas darbi</h3>
+          <p class="muted">Ikdienas problēmas vannasistabā un virtuvē pēc situācijas izvērtēšanas.</p>
+          <ul class="examples">
+            <li>Noteku un sifonu tīrīšana</li>
+            <li>Sifona vai maisītāja nomaiņa</li>
+            <li>Nelielu noplūžu novēršana</li>
+            <li>Sanitārās tehnikas pieregulēšana</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon">💡</div>
+          <h3>Sadzīves montāžas darbi</h3>
+          <p class="muted">Vienkārši montāžas un nomaiņas darbi mājās vai birojā.</p>
+          <ul class="examples">
+            <li>Gaismekļu un sadzīves elementu nomaiņa</li>
+            <li>Slēdžu vai rozešu nomaiņa pēc izvērtēšanas</li>
+            <li>Attēlu, spoguļu un TV stiprināšana</li>
+            <li>Citi nelieli darbi pēc vienošanās</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="icon">🏢</div>
+          <h3>Īpašuma uzturēšana</h3>
+          <p class="muted">Ērts risinājums uzņēmumiem, izīrētājiem un apsaimniekotājiem.</p>
+          <ul class="examples">
+            <li>Regulāra telpu un teritorijas kopšana</li>
+            <li>Sīku bojājumu novēršana</li>
+            <li>Telpu sagatavošana jaunam klientam</li>
+            <li>Darbu komplekss vienā izbraukumā</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="notice">
+        Katru nestandarta darbu iepriekš izvērtējam. Darba iespējamību, apjomu un cenu apstiprinām pirms izbraukuma vai pēc apskates.
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="ka">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Vienkārša sadarbība</h2>
+        <p class="muted">Mazāk sarakstes, mazāk meistaru meklēšanas, skaidrāks rezultāts.</p>
+      </div>
+      <div class="process">
+        <div class="step">
+          <h3>Aprakstiet darbu</h3>
+          <p class="muted">Piezvaniet vai nosūtiet e-pastu ar īsu aprakstu, adresi un, vēlams, fotogrāfijām.</p>
+        </div>
+        <div class="step">
+          <h3>Vienojamies par cenu</h3>
+          <p class="muted">Precizējam darba apjomu, nepieciešamos materiālus, laiku un izmaksas.</p>
+        </div>
+        <div class="step">
+          <h3>Izdarām</h3>
+          <p class="muted">Ierodamies norunātajā laikā un paveicam saskaņotos darbus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Apkalpošanas teritorija</h2>
+        <p class="muted">Pamatā strādājam Zemgalē un Rīgā. Par citu vietu iespējams vienoties atsevišķi.</p>
+      </div>
+      <div class="areas">
+        <span class="pill">Jelgava</span>
+        <span class="pill">Jelgavas novads</span>
+        <span class="pill">Ozolnieki</span>
+        <span class="pill">Rīga</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Biežākie jautājumi</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Kā var saņemt cenas piedāvājumu?</summary>
+          <p>Piezvaniet vai nosūtiet īsu darba aprakstu. Fotogrāfijas palīdz ātrāk saprast apjomu un nosaukt precīzāku cenu.</p>
+        </details>
+        <details>
+          <summary>Vai var pasūtīt vairākus darbus vienā reizē?</summary>
+          <p>Jā. Piemēram, telpu uzkopšanu var apvienot ar plaukta montāžu, sifona tīrīšanu vai teritorijas sakopšanu.</p>
+        </details>
+        <details>
+          <summary>Vai veicat regulārus darbus uzņēmumiem?</summary>
+          <p>Jā, iespējama regulāra biroju, komerctelpu un teritoriju uzturēšana pēc individuālas vienošanās.</p>
+        </details>
+        <details>
+          <summary>Vai izbraucat ārpus Jelgavas?</summary>
+          <p>Jā, apkalpojam Jelgavas novadu, Ozolniekus un Rīgu. Par citām vietām vienojamies atsevišķi.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakti">
+    <div class="wrap contact">
+      <div class="contact-box">
+        <h2>Pastāstiet, kas jāizdara</h2>
+        <p class="muted">Nosauciet adresi, vēlamo laiku un īsi aprakstiet darbu. Atbildēsim, vai varam palīdzēt un kādas būs izmaksas.</p>
+        <div class="actions">
+          <a class="btn primary" href="tel:+37129752319">Zvanīt</a>
+          <a class="btn secondary" href="mailto:anelikasia@gmail.com?subject=Pakalpojuma%20pieprasījums">Rakstīt e-pastu</a>
+        </div>
+      </div>
+      <div class="contact-box">
+        <div class="contact-row"><strong>Anelika SIA</strong></div>
+        <div class="contact-row">Tālrunis: <a href="tel:+37129752319"><strong>+371 29752319</strong></a></div>
+        <div class="contact-row">E-pasts: <a href="mailto:anelikasia@gmail.com"><strong>anelikasia@gmail.com</strong></a></div>
+        <div class="contact-row">Darba laiks: P.–Pk. 08:00–20:00</div>
+        <div class="contact-row">Klientus apkalpojam izbraukumā</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Anelika SIA · Uzkopšana, teritoriju kopšana un sīkie remontdarbi</div>
+</footer>
+
+<div class="mobilebar">
+  <a href="tel:+37129752319">Zvanīt</a>
+  <a href="mailto:anelikasia@gmail.com?subject=Pakalpojuma%20pieprasījums">E-pasts</a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
