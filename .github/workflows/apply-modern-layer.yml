@@ -1,0 +1,39 @@
+name: Apply modern visual layer
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-modern-layer.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link visual assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          css = '<link rel="stylesheet" href="enhance.css">'
+          js = '<script src="enhance.js" defer></script>'
+          if css not in text:
+              text = text.replace('</head>', f'  {css}\n</head>')
+          if js not in text:
+              text = text.replace('</body>', f'  {js}\n</body>')
+          p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Enable modern visual layer [skip ci]"
+          git push
