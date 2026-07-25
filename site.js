@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
+  body.style.isolation = 'isolate';
+
   const ambient = document.createElement('div');
   ambient.className = 'ambient';
+  ambient.style.zIndex = '0';
   const count = window.matchMedia('(max-width: 680px)').matches ? 7 : 12;
   for (let i = 0; i < count; i++) {
     const b = document.createElement('span');
@@ -19,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ambient.appendChild(b);
   }
   body.prepend(ambient);
+  document.querySelectorAll('main, footer').forEach(el => {
+    el.style.position = 'relative';
+    el.style.zIndex = '1';
+  });
 
   const current = body.dataset.page;
   document.querySelectorAll('[data-nav]').forEach(link => {
