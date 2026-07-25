@@ -2,333 +2,60 @@
 <html lang="lv">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Uzkopšana un sīkdarbi Jelgavā, Rīgā un Latvijā | Anelika</title>
-  <meta name="description" content="Telpu uzkopšana, teritoriju kopšana, zāles pļaušana, sīkie remonti un santehnikas sīkdarbi Jelgavā, Rīgā un visā Latvijā.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Uzkopšana un saimnieciskie darbi visā Latvijā | Anelika</title>
+  <meta name="description" content="Telpu uzkopšana, teritoriju kopšana un sīki remontdarbi Jelgavā, Rīgā un visā Latvijā privātpersonām un uzņēmumiem.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#071f3d">
   <link rel="canonical" href="https://www.anelika.lv/">
-  <link rel="icon" href="logo-mark.svg" type="image/svg+xml">
+  <link rel="icon" href="/logo-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/site.css">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="lv_LV">
-  <meta property="og:title" content="Anelika SIA — uzkopšana un saimnieciskie darbi">
-  <meta property="og:description" content="Telpu uzkopšana, teritoriju kopšana un saimnieciskie sīkdarbi visā Latvijā.">
+  <meta property="og:title" content="Anelika SIA — uzkopšanas serviss visā Latvijā">
+  <meta property="og:description" content="Telpu uzkopšana, teritoriju kopšana un sīki remontdarbi Jelgavā, Rīgā un visā Latvijā privātpersonām un uzņēmumiem.">
   <meta property="og:url" content="https://www.anelika.lv/">
-  <style>
-    :root{
-      --navy:#071f3d;
-      --navy2:#0b2e56;
-      --blue:#149bd0;
-      --ink:#10253d;
-      --muted:#627287;
-      --soft:#f3f8fb;
-      --softblue:#e9f7fc;
-      --white:#fff;
-      --line:#d9e7ef;
-      --shadow:0 20px 60px rgba(7,31,61,.12);
-      --radius:22px;
-      --max:1160px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--ink);
-      background:var(--white);
-      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-      line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:auto;padding:0 24px}
-    .section{padding:76px 0}
-    .soft{background:var(--soft)}
-
-    header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(255,255,255,.95);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(217,231,239,.92);
-    }
-    nav{
-      min-height:70px;
-      display:flex;align-items:center;justify-content:space-between;gap:22px;
-    }
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{width:43px;height:45px;object-fit:contain}
-    .brand-copy strong{
-      display:block;color:var(--navy);font-size:17px;
-      letter-spacing:.15em;line-height:1;font-weight:950;
-    }
-    .brand-copy span{
-      display:block;margin-top:5px;color:#537087;
-      font-size:9px;letter-spacing:.19em;text-transform:uppercase;
-    }
-    .menu{display:flex;align-items:center;gap:25px;color:#526477;font-size:14px}
-    .menu a:hover{color:var(--blue)}
-    .phone{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:43px;padding:0 17px;border-radius:999px;
-      background:var(--navy);color:#fff;font-size:14px;font-weight:850;
-    }
-
-    .hero{
-      position:relative;overflow:hidden;padding:80px 0 64px;
-      background:
-        radial-gradient(circle at 89% 16%,rgba(20,155,208,.22),transparent 26%),
-        linear-gradient(135deg,#f8fcfe 0%,#eff8fc 61%,#e7f5fb 100%);
-    }
-    .hero:after{
-      content:"";position:absolute;right:-190px;bottom:-325px;
-      width:690px;height:690px;border-radius:50%;
-      border:70px solid rgba(255,255,255,.48);
-    }
-    .hero-grid{
-      position:relative;z-index:1;
-      display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center;
-    }
-    .kicker{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 12px;border:1px solid #c7e8f4;border-radius:999px;
-      background:rgba(255,255,255,.8);color:#0c719b;
-      font-size:13px;font-weight:850;
-    }
-    .kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue)}
-    h1{
-      margin:21px 0 17px;max-width:760px;
-      color:var(--navy);font-size:clamp(42px,6vw,68px);
-      line-height:1.02;letter-spacing:-.045em;
-    }
-    .hero-lead{max-width:700px;margin:0;color:#50647a;font-size:20px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:50px;padding:0 21px;border-radius:13px;
-      border:1px solid var(--navy);font-weight:850;transition:.18s ease;
-    }
-    .btn.primary{background:var(--navy);color:#fff}
-    .btn.primary:hover{background:var(--navy2);transform:translateY(-1px)}
-    .btn.secondary{background:#fff}
-    .btn.secondary:hover{border-color:var(--blue);color:#0875a0}
-    .trust-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
-    .trust{
-      padding:8px 11px;border-radius:999px;
-      background:rgba(255,255,255,.72);border:1px solid #d9e9f1;
-      color:#50687d;font-size:12px;font-weight:760;
-    }
-
-    .quick-card{
-      padding:28px;border-radius:28px;background:#fff;
-      border:1px solid #d7e9f2;box-shadow:var(--shadow);
-    }
-    .quick-card h2{margin:0 0 7px;color:var(--navy);font-size:27px}
-    .quick-card>p{margin:0 0 20px;color:var(--muted)}
-    .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-    .quick-item{
-      padding:15px 14px;border-radius:15px;
-      background:var(--soft);border:1px solid #e4eef4;
-    }
-    .emoji{
-      display:block;margin-bottom:8px;font-size:26px;line-height:1;
-      font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
-    }
-    .quick-item strong{display:block;color:var(--navy);font-size:14px;line-height:1.25}
-    .quick-item span{display:block;margin-top:4px;color:var(--muted);font-size:12px}
-    .quick-foot{
-      margin-top:17px;padding-top:16px;border-top:1px solid var(--line);
-      color:#5f7487;font-size:13px;font-weight:720;
-    }
-
-    .section-head{max-width:790px;margin-bottom:32px}
-    .label{
-      display:inline-flex;align-items:center;gap:8px;margin-bottom:9px;
-      color:#0c729c;font-size:13px;font-weight:850;
-    }
-    .label:before{content:"";width:19px;height:2px;background:var(--blue)}
-    h2{
-      margin:0 0 12px;color:var(--navy);
-      font-size:clamp(32px,4.2vw,48px);
-      line-height:1.08;letter-spacing:-.035em;
-    }
-    .section-head p{margin:0;color:var(--muted);font-size:18px}
-
-    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
-    .service{
-      position:relative;overflow:hidden;padding:27px;
-      border:1px solid var(--line);border-radius:var(--radius);background:#fff;
-    }
-    .service:after{
-      content:"";position:absolute;right:-60px;top:-60px;
-      width:150px;height:150px;border-radius:50%;background:var(--softblue);
-    }
-    .service-title{position:relative;z-index:1;display:flex;align-items:center;gap:14px}
-    .service-icon{
-      width:48px;height:48px;flex:0 0 48px;border-radius:15px;
-      display:grid;place-items:center;background:var(--softblue);font-size:26px;
-      font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
-    }
-    .service h3{margin:0;color:var(--navy);font-size:23px}
-    .service p{margin:14px 0 16px;color:var(--muted)}
-    .service ul{
-      margin:0;padding:0;list-style:none;
-      display:grid;grid-template-columns:1fr 1fr;gap:9px 17px;
-    }
-    .service li{position:relative;padding-left:15px;font-size:14px}
-    .service li:before{
-      content:"";position:absolute;left:0;top:.64em;
-      width:6px;height:6px;border-radius:50%;background:var(--blue);
-    }
-    .scope{
-      margin-top:17px;padding:14px 16px;border-left:3px solid var(--blue);
-      border-radius:0 12px 12px 0;background:var(--softblue);
-      color:#51677b;font-size:14px;
-    }
-
-    .usp{
-      padding:34px;border-radius:27px;
-      display:grid;grid-template-columns:1.2fr auto;align-items:center;gap:26px;
-      background:linear-gradient(135deg,var(--navy),var(--navy2));
-      color:#fff;box-shadow:var(--shadow);
-    }
-    .usp h2{color:#fff;margin-bottom:9px;font-size:clamp(30px,4vw,45px)}
-    .usp p{margin:0;color:#c5d5e1;font-size:17px}
-    .usp .btn{background:var(--blue);border-color:var(--blue);color:#fff;white-space:nowrap}
-
-    .compact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .panel{padding:29px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
-    .panel h2{font-size:34px}
-    .benefits,.steps{display:grid;gap:13px;margin-top:20px}
-    .benefit{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
-    .check{
-      width:30px;height:30px;border-radius:10px;display:grid;place-items:center;
-      background:var(--softblue);color:#0877a3;font-weight:950;
-    }
-    .benefit strong,.step strong{display:block;color:var(--navy);font-size:16px}
-    .benefit span,.step span{display:block;margin-top:3px;color:var(--muted);font-size:14px}
-    .steps{counter-reset:step}
-    .step{
-      position:relative;padding:16px 16px 16px 58px;
-      border-radius:15px;background:var(--soft);
-    }
-    .step:before{
-      counter-increment:step;content:counter(step);
-      position:absolute;left:16px;top:15px;width:29px;height:29px;
-      border-radius:9px;display:grid;place-items:center;
-      background:var(--navy);color:#fff;font-size:13px;font-weight:900;
-    }
-    .audience{
-      margin-top:18px;padding-top:17px;border-top:1px solid var(--line);
-      color:#586f83;font-size:14px;
-    }
-    .audience b{color:var(--navy)}
-
-    .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    details{padding:18px 19px;border:1px solid var(--line);border-radius:15px;background:#fff}
-    summary{cursor:pointer;color:var(--navy);font-weight:820}
-    details p{margin:11px 0 0;color:var(--muted);font-size:14px}
-
-    .contact-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:19px}
-    .contact-main{
-      padding:34px;border-radius:25px;
-      background:linear-gradient(135deg,var(--navy),var(--navy2));
-      color:#fff;box-shadow:var(--shadow);
-    }
-    .contact-main h2{color:#fff}
-    .contact-main p{color:#c5d5e1;font-size:17px}
-    .contact-main .btn.primary{background:var(--blue);border-color:var(--blue)}
-    .contact-main .btn.secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.48)}
-    .company{padding:27px;border:1px solid var(--line);border-radius:24px;background:#fff}
-    .company h3{margin:0 0 12px;color:var(--navy);font-size:24px}
-    .row{padding:11px 0;border-bottom:1px solid var(--line)}
-    .row:last-child{border-bottom:0}
-    .row small{display:block;color:#7a8a99}
-    .row strong{display:block;margin-top:2px;color:var(--navy);font-size:14px}
-    footer{padding:26px 0;border-top:1px solid var(--line);color:#68798a;font-size:13px}
-    .footer-line{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    .mobilebar{display:none}
-
-    @media(max-width:900px){
-      .menu{display:none}
-      .hero-grid,.compact-grid,.contact-grid{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr}
-      .hero{padding-top:54px}
-      .usp{grid-template-columns:1fr}
-      .usp .btn{justify-self:start}
-    }
-    @media(max-width:640px){
-      .wrap{padding:0 18px}
-      .section{padding:60px 0}
-      nav{min-height:65px}
-      .brand img{width:37px;height:39px}
-      .brand-copy strong{font-size:15px}
-      .brand-copy span{display:none}
-      .phone{font-size:0;width:43px;padding:0}
-      .phone:after{content:"☎";font-size:18px}
-      .hero{padding:48px 0 52px}
-      h1{font-size:43px}
-      .hero-lead{font-size:18px}
-      .service ul{grid-template-columns:1fr}
-      .faq{grid-template-columns:1fr}
-      body{padding-bottom:66px}
-      .mobilebar{
-        display:grid;grid-template-columns:1fr 1fr;
-        position:fixed;left:0;right:0;bottom:0;z-index:60;
-        background:#fff;border-top:1px solid var(--line);
-      }
-      .mobilebar a{padding:14px;text-align:center;font-weight:850}
-      .mobilebar a:first-child{background:var(--navy);color:#fff}
-    }
-  </style>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":["LocalBusiness","CleaningService"],
+    "@type":"LocalBusiness",
     "name":"Anelika SIA",
     "url":"https://www.anelika.lv/",
     "telephone":"+37129752319",
     "email":"anelikasia@gmail.com",
-    "foundingDate":"2009",
-    "description":"Telpu uzkopšana, teritoriju kopšana, zāles pļaušana, sīkie remonti, montāža un santehnikas sīkdarbi Jelgavā, Rīgā un visā Latvijā.",
-    "areaServed":{"@type":"Country","name":"Latvija"},
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Sudrabu Edžus iela 1-19",
-      "addressLocality":"Jelgava",
-      "postalCode":"LV-3001",
-      "addressCountry":"LV"
-    },
+    "areaServed":"Latvia",
+    "address":{"@type":"PostalAddress","streetAddress":"Sudrabu Edžus iela 1-19","addressLocality":"Jelgava","postalCode":"LV-3001","addressCountry":"LV"},
     "openingHours":["Mo-Fr 08:00-20:00"]
   }
   </script>
-  <link rel="stylesheet" href="enhance.css">
 </head>
-<body>
+<body data-page="sakums">
 <header>
   <div class="wrap">
     <nav>
-      <a class="brand" href="#sakums" aria-label="Anelika sākumlapa">
-        <img src="logo-mark.svg" alt="Anelika logotips">
+      <a class="brand" href="/" aria-label="Anelika sākumlapa">
+        <img src="/logo-mark.svg" alt="Anelika logotips">
         <span class="brand-copy"><strong>ANELIKA</strong><span>Uzkopšanas serviss</span></span>
       </a>
+      <button class="menu-toggle" aria-label="Atvērt izvēlni" aria-expanded="false">☰</button>
       <div class="menu">
-        <a href="#pakalpojumi">Pakalpojumi</a>
-        <a href="#kapec">Kāpēc mēs</a>
-        <a href="#jautajumi">Jautājumi</a>
-        <a href="#kontakti">Kontakti</a>
+        <a data-nav="sakums" href="/">Sākums</a>
+        <a data-nav="uzkopsana" href="/uzkopsana/">Uzkopšana</a>
+        <a data-nav="teritorija" href="/teritoriju-kopsana/">Teritoriju kopšana</a>
+        <a data-nav="remonti" href="/siki-remontdarbi/">Sīki remontdarbi</a>
+        <a data-nav="kontakti" href="/kontakti/">Kontakti</a>
       </div>
       <a class="phone" href="tel:+37129752319">+371 29752319</a>
     </nav>
   </div>
 </header>
-
-<main id="sakums">
+<main>
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="kicker">Jelgava • Rīga • visa Latvija</span>
+        <span class="eyebrow">Jelgava • Rīga • visa Latvija</span>
         <h1>Uzkopšana un saimnieciskie darbi</h1>
-        <p class="hero-lead">Telpu uzkopšana, teritoriju kopšana un ikdienas sīkdarbi privātpersonām un uzņēmumiem. Vienreizēji darbi vai regulāra sadarbība visā Latvijā.</p>
+        <p class="lead">Telpu uzkopšana, teritoriju kopšana un ikdienas sīkdarbi privātpersonām un uzņēmumiem. Vienreizēji darbi vai regulāra sadarbība.</p>
         <div class="actions">
           <a class="btn primary" href="mailto:anelikasia@gmail.com?subject=Pakalpojuma%20pieprasījums">Nosūtīt pieprasījumu</a>
         </div>
@@ -338,160 +65,76 @@
           <span class="trust">Iepriekš saskaņots apjoms un cena</span>
         </div>
       </div>
-
-      <aside class="quick-card" aria-label="Pakalpojumu kopsavilkums">
-        <h2>Pakalpojumu veidi</h2>
-        <p>Galvenie pakalpojumi mājai, birojam un teritorijai.</p>
-        <div class="quick-grid">
-          <div class="quick-item"><span class="emoji" aria-hidden="true">🧹</span><strong>Telpu uzkopšana</strong><span>Dzīvokļi, mājas, biroji</span></div>
-          <div class="quick-item"><span class="emoji" aria-hidden="true">🌿</span><strong>Teritoriju kopšana</strong><span>Zāle, lapas, sniegs</span></div>
-          <div class="quick-item"><span class="emoji" aria-hidden="true">🔧</span><strong>Sīkie remonti</strong><span>Montāža un labojumi</span></div>
-          <div class="quick-item"><span class="emoji" aria-hidden="true">🚰</span><strong>Santehnikas sīkdarbi</strong><span>Sifoni, notekas, noplūdes</span></div>
+      <div class="service-console" aria-label="Pakalpojumu izvēle">
+        <div class="console-tabs">
+          <button class="console-tab active" data-service="uzkopsana"><span>🧹 Telpu uzkopšana</span><b>01</b></button>
+          <button class="console-tab" data-service="teritorija"><span>🌿 Teritoriju kopšana</span><b>02</b></button>
+          <button class="console-tab" data-service="remonti"><span>🔧 Sīki remontdarbi</span><b>03</b></button>
         </div>
-        <div class="quick-foot">Pēc vajadzības vienā pasūtījumā var iekļaut vairākus darbus.</div>
-      </aside>
+        <div class="console-panel"></div>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="pakalpojumi">
+  <section class="section compact">
     <div class="wrap">
       <div class="section-head">
         <span class="label">Pakalpojumi</span>
-        <h2>Pakalpojumi telpām, teritorijai un īpašumam</h2>
-        <p>Pakalpojuma apjomu pielāgojam konkrētajam objektam un veicamajiem darbiem.</p>
+        <h2>Trīs skaidras pakalpojumu grupas</h2>
+        <p>Katram virzienam ir atsevišķa lapa ar konkrētu darbu aprakstu. Santehnikas sīkdarbi ir iekļauti sadaļā “Sīki remontdarbi”.</p>
       </div>
-
-      <div class="services">
-        <article class="service">
-          <div class="service-title"><span class="service-icon" aria-hidden="true">🧹</span><h3>Telpu uzkopšana</h3></div>
-          <p>Vienreizēja vai regulāra dzīvojamo un komerctelpu uzkopšana.</p>
-          <ul>
-            <li>Dzīvokļi un mājas</li><li>Biroji un komerctelpas</li>
-            <li>Ģenerāltīrīšana</li><li>Uzkopšana pēc remonta</li>
-            <li>Logu mazgāšana</li><li>Grīdu tīrīšana un kopšana</li>
-          </ul>
-        </article>
-        <article class="service">
-          <div class="service-title"><span class="service-icon" aria-hidden="true">🌿</span><h3>Teritoriju kopšana</h3></div>
-          <p>Pagalma un uzņēmuma teritorijas sakopšana sezonāli vai regulāri.</p>
-          <ul>
-            <li>Zāles pļaušana</li><li>Lapu un zaru savākšana</li>
-            <li>Teritorijas sakopšana</li><li>Atkritumu savākšana</li>
-            <li>Sniega tīrīšana</li><li>Citi sezonas darbi</li>
-          </ul>
-        </article>
-        <article class="service">
-          <div class="service-title"><span class="service-icon" aria-hidden="true">🔧</span><h3>Sīkie remonti un montāža</h3></div>
-          <p>Praktiski darbi, kuriem nav vajadzīga liela remonta brigāde.</p>
-          <ul>
-            <li>Mēbeļu salikšana</li><li>Plaukti un karnīzes</li>
-            <li>Spoguļu un attēlu stiprināšana</li><li>Nelieli apdares labojumi</li>
-            <li>Silikona atjaunošana</li><li>Citi sīkdarbi pēc apskates</li>
-          </ul>
-        </article>
-        <article class="service">
-          <div class="service-title"><span class="service-icon" aria-hidden="true">🚰</span><h3>Santehnikas sīkdarbi</h3></div>
-          <p>Vienkāršu sadzīves problēmu novēršana virtuvē un vannasistabā.</p>
-          <ul>
-            <li>Sifonu un noteku tīrīšana</li><li>Sifona nomaiņa</li>
-            <li>Maisītāja nomaiņa</li><li>Nelielu noplūžu novēršana</li>
-            <li>Sanitārās tehnikas regulēšana</li><li>Citi darbi pēc vienošanās</li>
-          </ul>
-        </article>
-      </div>
-      <div class="scope">Nestandarta un tehniski sarežģītus darbus vispirms izvērtējam. Apjomu, materiālus, izbraukuma izmaksas un cenu saskaņojam pirms darba.</div>
-    </div>
-  </section>
-
-  <section class="section soft">
-    <div class="wrap">
-      <div class="usp">
-        <div>
-          <h2>Vairāki darbi vienā pasūtījumā</h2>
-          <p>Ja objektā nepieciešami dažādi nelieli darbi, tos iespējams saskaņot vienā pasūtījumā. Piemēram, uzkopšanu var apvienot ar teritorijas kopšanu, sifona tīrīšanu vai nelielu montāžu.</p>
-        </div>
-        <a class="btn" href="mailto:anelikasia@gmail.com?subject=Pakalpojuma%20pieprasījums">Nosūtīt darba aprakstu</a>
+      <div class="cards">
+        <article class="card"><div class="card-icon">🧹</div><h3>Telpu uzkopšana</h3><p>Mājām, dzīvokļiem, birojiem un citām telpām — vienreizēji vai regulāri.</p><a class="more" href="/uzkopsana/">Skatīt vairāk →</a></article>
+        <article class="card"><div class="card-icon">🌿</div><h3>Teritoriju kopšana</h3><p>Zāles pļaušana, lapas, zari, sezonas darbi un teritorijas uzturēšana.</p><a class="more" href="/teritoriju-kopsana/">Skatīt vairāk →</a></article>
+        <article class="card"><div class="card-icon">🔧</div><h3>Sīki remontdarbi</h3><p>Montāža, nelieli apdares labojumi, silikona šuves un vienkārši santehnikas darbi.</p><a class="more" href="/siki-remontdarbi/">Skatīt vairāk →</a></article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="kapec">
-    <div class="wrap compact-grid">
-      <div class="panel">
-        <span class="label">Kāpēc Anelika</span>
+  <section class="section">
+    <div class="wrap split">
+      <div class="dark-panel">
+        <span class="label" style="color:#7bdaf0">Par uzņēmumu</span>
         <h2>Pieredze un skaidri nosacījumi</h2>
-        <div class="benefits">
-          <div class="benefit"><span class="check">✓</span><div><strong>Darbu koordinēšana vienuviet</strong><span>Uzkopšanu, teritorijas kopšanu un sīkdarbus var saskaņot ar vienu uzņēmumu.</span></div></div>
-          <div class="benefit"><span class="check">✓</span><div><strong>Skaidrs darba apjoms un cena</strong><span>Pirms darba saskaņojam uzdevumu, termiņu, materiālus un izmaksas.</span></div></div>
-          <div class="benefit"><span class="check">✓</span><div><strong>Oficiāls uzņēmums kopš 2009. gada</strong><span>Strādājam ar privātpersonām un uzņēmumiem, nepieciešamības gadījumā izrakstām rēķinu.</span></div></div>
+        <p>Darba apjomu, materiālus, izbraukuma vietu un cenu saskaņojam pirms darba sākšanas.</p>
+        <div class="points">
+          <div class="point"><i>✓</i><div><strong>Darbu koordinēšana vienuviet</strong><span>Vairākus savstarpēji saistītus darbus iespējams apvienot vienā pasūtījumā.</span></div></div>
+          <div class="point"><i>✓</i><div><strong>Darbs privātpersonām un uzņēmumiem</strong><span>Dzīvokļi, mājas, biroji, nomas īpašumi un teritorijas.</span></div></div>
+          <div class="point"><i>✓</i><div><strong>Izbraukumi visā Latvijā</strong><span>Laiku un izbraukuma izmaksas ārpus pamatmaršrutiem saskaņojam individuāli.</span></div></div>
         </div>
-        <div class="audience"><b>Strādājam:</b> privātpersonām, uzņēmumiem, izīrētājiem un apsaimniekotājiem Jelgavā, Rīgā un visā Latvijā.</div>
+        <img class="watermark" src="/logo-mark.svg" alt="" aria-hidden="true">
       </div>
-
-      <div class="panel">
-        <span class="label">Kā pasūtīt</span>
-        <h2>Pasūtījuma process</h2>
+      <div class="light-panel">
+        <span class="label">Pasūtījuma process</span>
+        <h2>Vienkārši un saprotami</h2>
         <div class="steps">
-          <div class="step"><strong>Aprakstiet darbu</strong><span>Piezvaniet vai nosūtiet e-pastu. Fotogrāfijas palīdz ātrāk novērtēt apjomu.</span></div>
-          <div class="step"><strong>Saskaņojam piedāvājumu</strong><span>Vienojamies par vietu, laiku, materiāliem un cenu.</span></div>
-          <div class="step"><strong>Paveicam darbu</strong><span>Ierodamies norunātajā laikā un izdarām saskaņoto.</span></div>
+          <div class="step"><strong>Aprakstiet nepieciešamo darbu</strong><span>Norādiet atrašanās vietu, vēlamo laiku un darba apjomu.</span></div>
+          <div class="step"><strong>Saskaņojam nosacījumus</strong><span>Precizējam materiālus, izbraukumu un cenu vai aprēķina principu.</span></div>
+          <div class="step"><strong>Veicam darbu</strong><span>Darbu izpildām norunātajā laikā un apjomā.</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section soft" id="jautajumi">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="label">Biežākie jautājumi</span>
-        <h2>Informācija pirms pasūtījuma</h2>
-      </div>
-      <div class="faq">
-        <details><summary>Kā tiek noteikta cena?</summary><p>Cena ir atkarīga no darba apjoma, objekta stāvokļa, nepieciešamajiem materiāliem un izbraukuma vietas. Pirms darba vienojamies par cenu vai skaidru aprēķinu.</p></details>
-        <details><summary>Vai var pasūtīt vairākus darbus vienā reizē?</summary><p>Jā. Uzkopšanu var apvienot ar teritorijas kopšanu, montāžu vai santehnikas sīkdarbiem, ja tos iespējams droši paveikt vienā izbraukumā.</p></details>
-        <details><summary>Kas nodrošina materiālus un inventāru?</summary><p>Tas atkarīgs no darba. Uzkopšanas līdzekļus, instrumentus un remontmateriālus saskaņojam pirms izbraukuma.</p></details>
-        <details><summary>Vai izbraucat visā Latvijā?</summary><p>Jā. Strādājam Jelgavā, Rīgā un visā Latvijā. Izbraukuma laiku un izmaksas ārpus pamatmaršrutiem saskaņojam individuāli.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="kontakti">
-    <div class="wrap contact-grid">
-      <div class="contact-main">
-        <span class="label" style="color:#70d2ee">Sazinieties</span>
+  <section class="section compact">
+    <div class="wrap cta">
+      <div>
         <h2>Pakalpojuma pieprasījums</h2>
-        <p>Norādiet atrašanās vietu, vēlamo laiku un īsi aprakstiet nepieciešamos darbus. Pēc informācijas izvērtēšanas sagatavosim piedāvājumu.</p>
-        <div class="actions">
-          <a class="btn primary" href="tel:+37129752319">Zvanīt +371 29752319</a>
-          <a class="btn secondary" href="mailto:anelikasia@gmail.com?subject=Pakalpojuma%20pieprasījums">Rakstīt e-pastu</a>
-        </div>
+        <p>Īsi aprakstiet nepieciešamo darbu, atrašanās vietu un vēlamo laiku. Pēc informācijas izvērtēšanas sagatavosim piedāvājumu.</p>
       </div>
-      <aside class="company">
-        <h3>Anelika SIA</h3>
-        <div class="row"><small>Tālrunis</small><strong><a href="tel:+37129752319">+371 29752319</a></strong></div>
-        <div class="row"><small>E-pasts</small><strong><a href="mailto:anelikasia@gmail.com">anelikasia@gmail.com</a></strong></div>
-        <div class="row"><small>Darba laiks</small><strong>Pirmdiena–piektdiena, 08:00–20:00</strong></div>
-        <div class="row"><small>Apkalpošanas teritorija</small><strong>Jelgava, Rīga un visa Latvija</strong></div>
-        <div class="row"><small>Reģistrācijas numurs</small><strong>43603039887</strong></div>
-        <div class="row"><small>PVN numurs</small><strong>LV43603039887</strong></div>
-        <div class="row"><small>Juridiskā adrese</small><strong>Sudrabu Edžus iela 1-19, Jelgava, LV-3001</strong></div>
-      </aside>
+      <a class="btn primary" href="mailto:anelikasia@gmail.com?subject=Pakalpojuma%20pieprasījums">Nosūtīt pieprasījumu</a>
     </div>
   </section>
 </main>
-
 <footer>
   <div class="wrap footer-line">
     <span>© <span id="year"></span> Anelika SIA</span>
-    <span>Uzkopšana, teritoriju kopšana un saimnieciskie sīkdarbi visā Latvijā</span>
+    <span>Uzkopšana, teritoriju kopšana un sīki remontdarbi visā Latvijā</span>
   </div>
 </footer>
-
 <div class="mobilebar">
   <a href="tel:+37129752319">Zvanīt</a>
   <a href="mailto:anelikasia@gmail.com?subject=Pakalpojuma%20pieprasījums">E-pasts</a>
 </div>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-  <script src="enhance.js" defer></script>
-</body>
-</html>
+<script src="/site.js" defer></script>
+</body></html>
