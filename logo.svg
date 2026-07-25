@@ -1,5 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="621" viewBox="0 0 760 621" role="img" aria-labelledby="title desc">
-<title id="title">Anelika uzkopšanas serviss</title>
-<desc id="desc">Anelika logo ar burtu A, tīrīšanas simbolu un uzņēmuma nosaukumu.</desc>
-<image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvgAAA...TRUNCATED..." width="760" height="621"/>
+  <title id="title">Anelika uzkopšanas serviss</title>
+  <desc id="desc">Anelika logo ar stilizētu burtu A, tīrīšanas rakeli un dzirkstelēm.</desc>
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071f3d"/>
+      <stop offset="1" stop-color="#0b3768"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#56c5e9"/>
+      <stop offset="1" stop-color="#168fc7"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(152 -10) scale(.84)">
+    <path d="M245 72C130 80 63 159 66 245c3 90 79 158 183 158 30 0 59-6 84-17-21 4-42 6-63 6-93 0-161-61-163-143-2-75 53-144 138-177Z" fill="url(#blue)"/>
+    <path d="M198 124c-56 39-84 95-82 154 2 68 46 119 116 140-57-26-91-72-93-132-2-54 18-108 59-162Z" fill="#0d6fa6"/>
+    <path d="M307 42 420 302l-42 26-72-175-83 193-27-17L302 42Z" fill="url(#navy)"/>
+    <path d="M286 243h80l13 31H272Z" fill="#ffffff" opacity=".92"/>
+    <path d="M286 225c8-3 14-9 17-17 3 8 9 14 17 17-8 3-14 9-17 17-3-8-9-14-17-17Z" fill="#25aee0"/>
+    <path d="M334 262c5-2 9-6 11-11 2 5 6 9 11 11-5 2-9 6-11 11-2-5-6-9-11-11Z" fill="#25aee0"/>
+    <path d="M351 195c4-1 7-4 8-8 1 4 4 7 8 8-4 1-7 4-8 8-1-4-4-7-8-8Z" fill="#25aee0"/>
+    <g transform="translate(378 292) rotate(-42)">
+      <rect x="-12" y="-14" width="138" height="23" rx="6" fill="url(#navy)"/>
+      <rect x="-5" y="12" width="120" height="10" rx="4" fill="#27a9df"/>
+      <path d="M70 20h34l19 70-25 7-15-55H70Z" fill="url(#blue)"/>
+      <rect x="98" y="83" width="26" height="48" rx="8" fill="#168fc7"/>
+      <circle cx="111" cy="119" r="4" fill="#dff5fc"/>
+    </g>
+  </g>
+
+  <text x="380" y="460" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="76" font-weight="500" letter-spacing="18" fill="#071f3d">ANELIKA</text>
+  <line x1="100" y1="505" x2="205" y2="505" stroke="#1aa2d7" stroke-width="5"/>
+  <line x1="555" y1="505" x2="660" y2="505" stroke="#1aa2d7" stroke-width="5"/>
+  <text x="380" y="514" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="600" letter-spacing="6" fill="#168fc7">UZKOPŠANAS SERVISS</text>
+  <text x="380" y="570" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="21" letter-spacing="7" fill="#10253d">TĪRĪBA  |  KVALITĀTE  |  UZTICAMĪBA</text>
 </svg>
