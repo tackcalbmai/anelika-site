@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://anelika.lv/sitemap.xml
+Sitemap: https://www.anelika.lv/sitemap.xml
