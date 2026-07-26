@@ -1,0 +1,54 @@
+name: Replace service card icons
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/replace-service-icons.yml
+
+permissions:
+  contents: write
+
+jobs:
+  replace-icons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Replace inline drawings with image assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+          icons = {
+              'Telpu uzkopšana': '/icons/cleaning.svg?v=1',
+              'Teritoriju kopšana': '/icons/territory.svg?v=1',
+              'Sīki remontdarbi': '/icons/repair.svg?v=1',
+          }
+          for title, src in icons.items():
+              pattern = rf'(<article class="service-card"[^>]*><div class="card-icon">).*?(</div><h3>{re.escape(title)}</h3>)'
+              replacement = rf'\1<img src="{src}" alt="" aria-hidden="true">\2'
+              html, count = re.subn(pattern, replacement, html, count=1, flags=re.S)
+              if count != 1:
+                  raise RuntimeError(f'Could not replace icon for {title}')
+          html = html.replace('/site-scenes.css?v=12', '/site-scenes.css?v=13')
+          path.write_text(html, encoding='utf-8')
+
+          css_path = Path('site-scenes.css')
+          css = css_path.read_text(encoding='utf-8')
+          rule = '.card-icon img{width:38px;height:38px;object-fit:contain}\n'
+          if rule not in css:
+              css = css.replace('.card-icon svg{width:31px;height:31px;fill:none;stroke:#0a7eb0;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}\n', '.card-icon svg{width:31px;height:31px;fill:none;stroke:#0a7eb0;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}\n' + rule)
+              css_path.write_text(css, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html site-scenes.css
+          git commit -m "Replace service card drawings with polished image icons"
+          git push
