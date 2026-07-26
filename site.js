@@ -7,6 +7,30 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
 
+  /* Load the dedicated visual-motion layer on every page. */
+  if (!document.querySelector('link[data-site-motion]')) {
+    const motionStyles = document.createElement('link');
+    motionStyles.rel = 'stylesheet';
+    motionStyles.href = '/site-motion.css?v=1';
+    motionStyles.dataset.siteMotion = '';
+    document.head.appendChild(motionStyles);
+  }
+  document.documentElement.classList.add('motion-enabled');
+
+  /* Guarantee that the ambient layer exists on every page. */
+  let ambient = document.querySelector('.ambient');
+  if (!ambient) {
+    ambient = document.createElement('div');
+    ambient.className = 'ambient';
+    ambient.setAttribute('aria-hidden', 'true');
+    body.prepend(ambient);
+  }
+  while (ambient.querySelectorAll('.bubble').length < 7) {
+    const bubble = document.createElement('span');
+    bubble.className = 'bubble';
+    ambient.appendChild(bubble);
+  }
+
   document.querySelectorAll('[data-nav]').forEach(link => {
     if (link.dataset.nav === body.dataset.page) link.setAttribute('aria-current', 'page');
   });
@@ -50,6 +74,7 @@
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const progress = max > 0 ? Math.min(100, (y / max) * 100) : 0;
     document.documentElement.style.setProperty('--progress', `${progress}%`);
+    document.documentElement.style.setProperty('--parallax-y', `${Math.min(34, y * 0.035)}px`);
   };
 
   const requestScrollUpdate = () => {
@@ -116,6 +141,8 @@
         pointerFrame = requestAnimationFrame(() => {
           document.documentElement.style.setProperty('--mx', `${pointerX}px`);
           document.documentElement.style.setProperty('--my', `${pointerY}px`);
+          document.documentElement.style.setProperty('--motion-x', `${pointerX}px`);
+          document.documentElement.style.setProperty('--motion-y', `${pointerY}px`);
           pointerFrame = 0;
         });
       }
@@ -146,16 +173,58 @@
     });
   }
 
+  /* Reveal important content progressively as it enters the viewport. */
+  const revealSelector = [
+    '.hero-grid > *',
+    '.page-hero-grid > *',
+    '.section-head',
+    '.service-card',
+    '.detail-card',
+    '.process-step',
+    '.fact',
+    '.brand-band-grid > *',
+    '.cta > *',
+    '.contact-primary',
+    '.company-card',
+    '.request-item',
+    '.footer-main > *'
+  ].join(',');
+
+  const revealItems = [...document.querySelectorAll(revealSelector)];
+  revealItems.forEach((item, index) => {
+    item.classList.add('reveal-item');
+    item.style.setProperty('--reveal-delay', `${Math.min((index % 4) * 85, 255)}ms`);
+  });
+
+  requestAnimationFrame(() => body.classList.add('motion-ready'));
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+
+    revealItems.forEach(item => observer.observe(item));
+  } else {
+    revealItems.forEach(item => item.classList.add('is-visible'));
+  }
+
   document.querySelectorAll('[data-tabs]').forEach(tabset => {
     const tabs = [...tabset.querySelectorAll('[role="tab"]')];
     const panels = [...tabset.querySelectorAll('[role="tabpanel"]')];
     const counter = tabset.querySelector('[data-counter]');
+    let activeIndex = 0;
+    let autoTimer = 0;
 
     const activate = (tab, focus = false) => {
       tabs.forEach((item, index) => {
         const active = item === tab;
         item.setAttribute('aria-selected', String(active));
         item.tabIndex = active ? 0 : -1;
+        if (active) activeIndex = index;
         if (active && counter) counter.textContent = `0${index + 1} / 03`;
       });
 
@@ -168,8 +237,25 @@
       if (focus) tab.focus();
     };
 
+    const stopAuto = () => {
+      if (autoTimer) window.clearInterval(autoTimer);
+      autoTimer = 0;
+    };
+
+    const startAuto = () => {
+      if (reduceMotion || tabs.length < 2 || !tabset.closest('.hero') || autoTimer) return;
+      autoTimer = window.setInterval(() => {
+        const next = tabs[(activeIndex + 1) % tabs.length];
+        if (next) activate(next);
+      }, 5600);
+    };
+
     tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('click', () => {
+        activate(tab);
+        stopAuto();
+        startAuto();
+      });
       tab.addEventListener('keydown', event => {
         let nextIndex = null;
         if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
@@ -179,11 +265,20 @@
         if (nextIndex !== null) {
           event.preventDefault();
           activate(tabs[nextIndex], true);
+          stopAuto();
         }
       });
     });
 
+    tabset.addEventListener('pointerenter', stopAuto);
+    tabset.addEventListener('pointerleave', startAuto);
+    tabset.addEventListener('focusin', stopAuto);
+    tabset.addEventListener('focusout', event => {
+      if (!tabset.contains(event.relatedTarget)) startAuto();
+    });
+
     const initial = tabs.find(tab => tab.getAttribute('aria-selected') === 'true') || tabs[0];
     if (initial) activate(initial);
+    startAuto();
   });
 })();
