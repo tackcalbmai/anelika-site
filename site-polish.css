@@ -6,7 +6,7 @@ p{text-wrap:pretty}
 a,button{touch-action:manipulation}
 
 /* Keep the brand description broad enough for all services */
-.brand-copy span{max-width:190px;white-space:nowrap}
+.brand-copy span{max-width:210px;white-space:nowrap;font-size:8px;letter-spacing:.13em}
 
 /* Hero conversion controls */
 .btn-hero-secondary{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.07);box-shadow:none}
@@ -31,19 +31,30 @@ a,button{touch-action:manipulation}
 .repair-bit{stroke-dasharray:7 6;animation:repair-bit .55s linear infinite}
 .shelf-glow{opacity:.15;animation:shelf-glow 3.2s ease-in-out infinite}
 @keyframes repair-drill{0%,18%{transform:translateX(8px)}55%,76%{transform:translateX(-5px)}100%{transform:translateX(8px)}}
-@keyframes repair-bit{to{stroke-dashoffset:-13}}
+@keyframes repair-bit{to{stroke-dashoffset:13}}
 @keyframes level-bubble{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
 @keyframes shelf-glow{0%,100%{opacity:.10}50%{opacity:.38}}
+
+/* The full desktop menu needs more room than a typical tablet width */
+@media (max-width:1120px){
+  :root{--header-h:68px}
+  .site-nav{grid-template-columns:auto 1fr auto;gap:12px}
+  .brand-copy{display:grid}
+  .brand-copy strong{font-size:14px}
+  .brand-copy span{font-size:7.5px;max-width:175px;overflow:hidden;text-overflow:ellipsis}
+  .brand img{width:40px;height:42px}
+  .header-phone{display:none}
+  .menu-toggle{display:flex;justify-self:end}
+  .menu{position:fixed;left:20px;right:20px;top:76px;display:grid;gap:5px;padding:10px;border-radius:20px;box-shadow:0 20px 55px rgba(7,31,61,.18);transform:translateY(-10px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  .menu.is-open{opacity:1;visibility:visible;transform:none}
+  .menu a{justify-content:center;border-radius:13px}
+}
 
 /* Touch devices should not keep desktop hover states stuck */
 @media (hover:none){
   .service-card:hover,.contact-method:hover,.btn:hover,.header-phone:hover{transform:none}
   .service-card:hover{box-shadow:0 14px 40px rgba(7,31,61,.075);border-color:rgba(8,38,70,.09)}
   .service-card:hover::before,.detail-card:hover::before{opacity:0}
-}
-
-@media (max-width:860px){
-  .brand-copy span{max-width:150px;overflow:hidden;text-overflow:ellipsis}
 }
 
 @media (max-width:680px){
