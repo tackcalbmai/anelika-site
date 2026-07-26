@@ -1,0 +1,32 @@
+/* Professional company footer */
+.site-footer{padding:0;background:linear-gradient(145deg,#04172c,#072a4d 58%,#0b4169);border-top:0;color:#d4e3ed;overflow:hidden}
+.site-footer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 8% 14%,rgba(103,216,242,.13),transparent 25rem),radial-gradient(circle at 92% 80%,rgba(21,155,209,.12),transparent 28rem);pointer-events:none}
+.footer-main{position:relative;display:grid;grid-template-columns:1.25fr .72fr .95fr 1.05fr;gap:42px;padding:62px 0 46px}
+.footer-brand-block{max-width:330px}
+.footer-brand{display:inline-flex;align-items:center;gap:13px;margin-bottom:20px}
+.footer-brand img{width:54px;height:56px;filter:brightness(0) invert(1)}
+.footer-brand span{display:grid;gap:5px;line-height:1}
+.footer-brand strong{font-size:18px;letter-spacing:.18em;color:#fff}
+.footer-brand small{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#8db4c9;font-weight:800}
+.footer-brand-block p{color:#a9c3d3;font-size:15px;line-height:1.7;margin-bottom:19px}
+.footer-call{display:inline-flex;color:#fff;font-size:19px;font-weight:900;letter-spacing:.02em;transition:color .2s}
+.footer-call:hover{color:var(--cyan)}
+.footer-column h2{font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:#fff;margin:7px 0 19px}
+.footer-column nav{display:grid;gap:10px}
+.footer-column nav a{width:max-content;max-width:100%;color:#a9c3d3;font-size:14px;transition:color .2s,transform .2s}
+.footer-column nav a:hover{color:#fff;transform:translateX(3px)}
+.footer-contact-list{display:grid;gap:14px}
+.footer-contact-list a,.footer-contact-list div{display:grid;gap:2px}
+.footer-contact-list span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#789db3}
+.footer-contact-list strong{font-size:14px;color:#d8e7ef;overflow-wrap:anywhere}
+.footer-contact-list a:hover strong{color:#fff}
+.footer-company dl{display:grid;gap:12px;margin:0}
+.footer-company dl div{display:grid;gap:2px}
+.footer-company dt{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#789db3}
+.footer-company dd{margin:0;color:#d8e7ef;font-size:13px;line-height:1.55}
+.footer-bottom{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0 26px;border-top:1px solid rgba(255,255,255,.10);color:#85a7bb;font-size:12px}
+.footer-legal{display:flex;align-items:center;gap:18px}
+.footer-legal a,.footer-legal button{padding:0;border:0;background:none;color:#a9c3d3;font-size:12px;cursor:pointer}
+.footer-legal a:hover,.footer-legal button:hover{color:#fff}
+@media(max-width:1040px){.footer-main{grid-template-columns:1.2fr 1fr 1fr}.footer-company{grid-column:2/4}}
+@media(max-width:680px){.site-footer{padding-bottom:90px}.footer-main{grid-template-columns:1fr;gap:30px;padding:44px 0 32px}.footer-brand-block{max-width:none}.footer-company{grid-column:auto}.footer-bottom{align-items:flex-start;flex-direction:column;gap:12px}.footer-legal{align-items:flex-start;flex-direction:column;gap:8px}}
