@@ -38,7 +38,7 @@
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 860) setMenu(false);
+    if (window.innerWidth > 1120) setMenu(false);
   }, { passive: true });
 
   let scrollFrame = 0;
