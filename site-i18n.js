@@ -78,14 +78,25 @@
       nav.appendChild(link);
     });
     const siteNav = document.querySelector('.site-nav');
-    const phone = siteNav?.querySelector('.header-phone');
-    if (siteNav) siteNav.insertBefore(nav, phone || siteNav.querySelector('.menu-toggle'));
+    if (siteNav) {
+      const phone = siteNav.querySelector('.header-phone');
+      const toggle = siteNav.querySelector('.menu-toggle');
+      let actions = siteNav.querySelector('.header-actions');
+      if (!actions) {
+        actions = document.createElement('div');
+        actions.className = 'header-actions';
+        siteNav.appendChild(actions);
+        if (phone) actions.appendChild(phone);
+        if (toggle) actions.appendChild(toggle);
+      }
+      actions.insertBefore(nav, actions.firstChild);
+    }
   };
 
   const addLanguageToInternalLinks = () => {
     document.querySelectorAll('a[href]').forEach(link => {
       const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http')) return;
+      if (link.closest('.language-switcher') || !href || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('http')) return;
       try {
         const url = new URL(href, location.origin);
         if (lang === 'lv') url.searchParams.delete('lang'); else url.searchParams.set('lang', lang);
