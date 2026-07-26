@@ -8,44 +8,75 @@
   const finePointer = window.matchMedia('(pointer: fine)').matches;
 
   document.querySelectorAll('[data-nav]').forEach(link => {
-    if (link.dataset.nav === body.dataset.page) {
-      link.setAttribute('aria-current', 'page');
-    }
+    if (link.dataset.nav === body.dataset.page) link.setAttribute('aria-current', 'page');
   });
 
-  const setMenu = open => {
+  const setMenu = (open, moveFocus = false) => {
     if (!menu || !menuToggle) return;
     menu.classList.toggle('is-open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Aizvērt izvēlni' : 'Atvērt izvēlni');
+    if (open && moveFocus) menu.querySelector('a')?.focus();
   };
 
-  menuToggle?.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
-  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') setMenu(false);
+  menuToggle?.addEventListener('click', () => {
+    const willOpen = !menu?.classList.contains('is-open');
+    setMenu(willOpen, willOpen);
   });
+
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.classList.contains('is-open')) {
+      setMenu(false);
+      menuToggle?.focus();
+    }
+  });
+
   document.addEventListener('pointerdown', event => {
     if (menu?.classList.contains('is-open') && !menu.contains(event.target) && !menuToggle?.contains(event.target)) setMenu(false);
   });
 
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) setMenu(false);
+  }, { passive: true });
+
+  let scrollFrame = 0;
   const updateScrollState = () => {
+    scrollFrame = 0;
     const y = window.scrollY;
     header?.classList.toggle('is-scrolled', y > 12);
-    mobilebar?.classList.toggle('is-visible', y > Math.max(520, window.innerHeight * 0.8));
+    mobilebar?.classList.toggle('is-visible', y > Math.max(420, window.innerHeight * 0.65));
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const progress = max > 0 ? Math.min(100, (y / max) * 100) : 0;
     document.documentElement.style.setProperty('--progress', `${progress}%`);
   };
+
+  const requestScrollUpdate = () => {
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(updateScrollState);
+  };
+
   updateScrollState();
-  window.addEventListener('scroll', updateScrollState, { passive: true });
+  window.addEventListener('scroll', requestScrollUpdate, { passive: true });
 
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
   if (!reduceMotion && finePointer) {
+    let pointerFrame = 0;
+    let pointerX = 0;
+    let pointerY = 0;
+
     window.addEventListener('pointermove', event => {
-      document.documentElement.style.setProperty('--mx', `${event.clientX}px`);
-      document.documentElement.style.setProperty('--my', `${event.clientY}px`);
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      if (!pointerFrame) {
+        pointerFrame = requestAnimationFrame(() => {
+          document.documentElement.style.setProperty('--mx', `${pointerX}px`);
+          document.documentElement.style.setProperty('--my', `${pointerY}px`);
+          pointerFrame = 0;
+        });
+      }
     }, { passive: true });
 
     document.querySelectorAll('[data-spotlight]').forEach(item => {
@@ -53,7 +84,7 @@
         const rect = item.getBoundingClientRect();
         item.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
         item.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
-      });
+      }, { passive: true });
     });
 
     document.querySelectorAll('[data-tilt]').forEach(item => {
@@ -61,11 +92,11 @@
         const rect = item.getBoundingClientRect();
         const x = (event.clientX - rect.left) / rect.width - 0.5;
         const y = (event.clientY - rect.top) / rect.height - 0.5;
-        item.style.setProperty('--tilt-y', `${x * 3.2}deg`);
-        item.style.setProperty('--tilt-x', `${y * -3.2}deg`);
+        item.style.setProperty('--tilt-y', `${x * 2.6}deg`);
+        item.style.setProperty('--tilt-x', `${y * -2.6}deg`);
         item.style.setProperty('--sx', `${(x + 0.5) * 100}%`);
         item.style.setProperty('--sy', `${(y + 0.5) * 100}%`);
-      });
+      }, { passive: true });
       item.addEventListener('pointerleave', () => {
         item.style.setProperty('--tilt-y', '0deg');
         item.style.setProperty('--tilt-x', '0deg');
@@ -85,11 +116,13 @@
         item.tabIndex = active ? 0 : -1;
         if (active && counter) counter.textContent = `0${index + 1} / 03`;
       });
+
       panels.forEach(panel => {
         const active = panel.id === tab.getAttribute('aria-controls');
         panel.classList.toggle('is-active', active);
         panel.hidden = !active;
       });
+
       if (focus) tab.focus();
     };
 
