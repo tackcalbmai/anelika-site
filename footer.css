@@ -1,5 +1,5 @@
 /* Professional company footer */
-.site-footer{padding:0;background:linear-gradient(145deg,#04172c,#072a4d 58%,#0b4169);border-top:0;color:#d4e3ed;overflow:hidden}
+.site-footer{position:relative;padding:0;background:linear-gradient(145deg,#04172c,#072a4d 58%,#0b4169);border-top:0;color:#d4e3ed;overflow:hidden}
 .site-footer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 8% 14%,rgba(103,216,242,.13),transparent 25rem),radial-gradient(circle at 92% 80%,rgba(21,155,209,.12),transparent 28rem);pointer-events:none}
 .footer-main{position:relative;display:grid;grid-template-columns:1.25fr .72fr .95fr 1.05fr;gap:42px;padding:62px 0 46px}
 .footer-brand-block{max-width:330px}
