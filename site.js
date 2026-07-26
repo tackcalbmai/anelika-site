@@ -62,6 +62,48 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  /* Final copy and illustration cleanup */
+  document.querySelectorAll('.eyebrow').forEach(label => {
+    if (label.textContent.includes('visā Latvijā')) {
+      label.textContent = label.textContent.replace('visā Latvijā', 'Visa Latvija');
+    }
+  });
+
+  document.querySelectorAll('.footer-line > span:last-child').forEach(line => {
+    if (line.textContent.includes('visā Latvijā')) {
+      line.textContent = line.textContent.replace('visā Latvijā', '— visa Latvija');
+    }
+  });
+
+  document.querySelectorAll('.fact strong').forEach(title => {
+    if (title.textContent.trim() === 'Izbraukumi visā Latvijā') title.textContent = 'Izbraukumi pa visu Latviju';
+  });
+
+  if (body.dataset.page === 'teritorija') {
+    const territoryCta = document.querySelector('.cta h2');
+    if (territoryCta) territoryCta.textContent = 'Aprakstiet nepieciešamos darbus';
+  }
+
+  const serviceIcons = document.querySelectorAll('.service-cards .card-icon svg');
+  if (serviceIcons[0]) {
+    serviceIcons[0].innerHTML = '<path d="M15 13h12l3 21H11l3-16zM18 8h8v5M25 8l6-2M16 22h9M33 14v6M30 17h6"/>';
+  }
+  if (serviceIcons[1]) {
+    serviceIcons[1].innerHTML = '<path d="M8 27h24l-4-12H15l-5 12M28 15l4-8h5M9 27h24"/><circle cx="13" cy="31" r="4"/><circle cx="29" cy="31" r="4"/>';
+  }
+  if (serviceIcons[2]) {
+    serviceIcons[2].innerHTML = '<path d="M10 31l18-18M24 8l8-2-2 8-5 2-3-3zM8 9l7 7-4 4-7-7zM23 24l9 9"/>';
+  }
+
+  document.querySelectorAll('.clean-squeegee').forEach(squeegee => {
+    const svg = squeegee.closest('svg');
+    if (svg?.classList.contains('showcase-art')) {
+      squeegee.innerHTML = '<path class="scene-line" d="M221 47v55M181 103h80M190 112h62"/>';
+    } else {
+      squeegee.innerHTML = '<path class="scene-line" d="M233 67v68M187 136h92M198 146h70"/>';
+    }
+  });
+
   if (!reduceMotion && finePointer) {
     let pointerFrame = 0;
     let pointerX = 0;
