@@ -1,0 +1,58 @@
+/* Final visual, conversion and performance polish */
+html{color-scheme:light}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2{text-wrap:balance}
+p{text-wrap:pretty}
+a,button{touch-action:manipulation}
+
+/* Keep the brand description broad enough for all services */
+.brand-copy span{max-width:190px;white-space:nowrap}
+
+/* Hero conversion controls */
+.btn-hero-secondary{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.07);box-shadow:none}
+.btn-hero-secondary:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.42)}
+.hero .actions{align-items:stretch}
+.hero .actions .btn{min-width:184px}
+
+/* Subtle premium finishing */
+.service-showcase,.service-visual,.brand-band,.contact-primary{isolation:isolate}
+.service-showcase,.service-card,.detail-card,.process-step,.cta,.company-card,.request-item{backface-visibility:hidden}
+.section,.section-tight{content-visibility:auto;contain-intrinsic-size:760px}
+.hero,.page-hero{content-visibility:visible}
+.service-card,.detail-card,.process-step,.request-item{outline:1px solid transparent}
+.service-card:focus-within,.detail-card:focus-within,.process-step:focus-within,.request-item:focus-within{outline-color:rgba(21,155,209,.34);box-shadow:0 20px 50px rgba(7,31,61,.12)}
+
+/* Repair illustration: shelf is visibly being mounted, not drilled at random */
+.shelf-board{fill:rgba(101,211,236,.09);stroke:#7bdaf0;stroke-width:3;vector-effect:non-scaling-stroke}
+.shelf-bracket,.repair-drill,.repair-bit,.level-outline{fill:none;stroke:#7bdaf0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.level-fill{fill:rgba(101,211,236,.11);stroke:rgba(123,218,240,.42);stroke-width:2;vector-effect:non-scaling-stroke}
+.level-bubble{fill:#78dff4;transform-box:fill-box;transform-origin:center;animation:level-bubble 3.2s ease-in-out infinite}
+.repair-drill{transform-box:fill-box;transform-origin:center;animation:repair-drill 4.4s ease-in-out infinite}
+.repair-bit{stroke-dasharray:7 6;animation:repair-bit .55s linear infinite}
+.shelf-glow{opacity:.15;animation:shelf-glow 3.2s ease-in-out infinite}
+@keyframes repair-drill{0%,18%{transform:translateX(8px)}55%,76%{transform:translateX(-5px)}100%{transform:translateX(8px)}}
+@keyframes repair-bit{to{stroke-dashoffset:-13}}
+@keyframes level-bubble{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+@keyframes shelf-glow{0%,100%{opacity:.10}50%{opacity:.38}}
+
+/* Touch devices should not keep desktop hover states stuck */
+@media (hover:none){
+  .service-card:hover,.contact-method:hover,.btn:hover,.header-phone:hover{transform:none}
+  .service-card:hover{box-shadow:0 14px 40px rgba(7,31,61,.075);border-color:rgba(8,38,70,.09)}
+  .service-card:hover::before,.detail-card:hover::before{opacity:0}
+}
+
+@media (max-width:860px){
+  .brand-copy span{max-width:150px;overflow:hidden;text-overflow:ellipsis}
+}
+
+@media (max-width:680px){
+  .hero .actions{display:grid;grid-template-columns:1fr}
+  .hero .actions .btn{width:100%;min-width:0}
+  .showcase-stage{min-height:410px}
+  .mobilebar{bottom:max(12px,env(safe-area-inset-bottom));left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right))}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .level-bubble,.repair-drill,.repair-bit,.shelf-glow{animation:none!important}
+}
