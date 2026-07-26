@@ -1,4 +1,13 @@
 (() => {
+  /* Load the shared LV / RU / EN language layer on every page. */
+  if (!document.querySelector('script[data-site-i18n]')) {
+    const i18n = document.createElement('script');
+    i18n.src = '/site-i18n.js?v=1';
+    i18n.async = false;
+    i18n.dataset.siteI18n = '';
+    document.head.appendChild(i18n);
+  }
+
   const banner = document.querySelector('[data-cookie-banner]');
   const accept = document.querySelector('[data-cookie-accept]');
   const settings = document.querySelectorAll('[data-cookie-settings]');
