@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Telpu uzkopšana</title>
+  <g fill="none" stroke="#0A7EB0" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 25h17l4 29H18l4-29h2Z"/>
+    <path d="M26 25v-8h11v8"/>
+    <path d="M31 17v-5h12l6 4-6 5h-6"/>
+    <path d="M24 38h15"/>
+    <path d="M49 25v8M45 29h8"/>
+    <path d="M52 11v5M49.5 13.5h5"/>
+  </g>
+  <path d="M22 48h19" stroke="#67D8F2" stroke-width="3.2" stroke-linecap="round"/>
+</svg>
