@@ -27,10 +27,11 @@ a,button{touch-action:manipulation}
 .shelf-bracket,.repair-drill,.repair-bit,.level-outline{fill:none;stroke:#7bdaf0;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .level-fill{fill:rgba(101,211,236,.11);stroke:rgba(123,218,240,.42);stroke-width:2;vector-effect:non-scaling-stroke}
 .level-bubble{fill:#78dff4;transform-box:fill-box;transform-origin:center;animation:level-bubble 3.2s ease-in-out infinite}
-.repair-drill{transform-box:fill-box;transform-origin:center;animation:repair-drill 4.4s ease-in-out infinite}
+.repair-drill{--repair-shift:-50px;transform-box:fill-box;transform-origin:center;animation:repair-drill 4.4s ease-in-out infinite}
+.visual-art .repair-drill{--repair-shift:-60px}
 .repair-bit{stroke-dasharray:7 6;animation:repair-bit .55s linear infinite}
 .shelf-glow{opacity:.15;animation:shelf-glow 3.2s ease-in-out infinite}
-@keyframes repair-drill{0%,18%{transform:translateX(8px)}55%,76%{transform:translateX(-5px)}100%{transform:translateX(8px)}}
+@keyframes repair-drill{0%,18%{transform:translateX(calc(var(--repair-shift) + 8px)) scaleX(-1)}55%,76%{transform:translateX(calc(var(--repair-shift) - 5px)) scaleX(-1)}100%{transform:translateX(calc(var(--repair-shift) + 8px)) scaleX(-1)}}
 @keyframes repair-bit{to{stroke-dashoffset:13}}
 @keyframes level-bubble{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
 @keyframes shelf-glow{0%,100%{opacity:.10}50%{opacity:.38}}
