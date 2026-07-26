@@ -5,8 +5,8 @@ h1,h2{text-wrap:balance}
 p{text-wrap:pretty}
 a,button{touch-action:manipulation}
 
-/* Keep the brand description broad enough for all services */
-.brand-copy span{max-width:210px;white-space:nowrap;font-size:8px;letter-spacing:.13em}
+/* Compact brand description for every service and screen size */
+.brand-copy span{display:block;max-width:none;white-space:nowrap;font-size:9px;letter-spacing:.14em}
 
 /* Hero conversion controls */
 .btn-hero-secondary{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.07);box-shadow:none}
@@ -42,7 +42,7 @@ a,button{touch-action:manipulation}
   .site-nav{grid-template-columns:auto 1fr auto;gap:12px}
   .brand-copy{display:grid}
   .brand-copy strong{font-size:14px}
-  .brand-copy span{font-size:7.5px;max-width:175px;overflow:hidden;text-overflow:ellipsis}
+  .brand-copy span{display:block;font-size:8px;max-width:none;overflow:visible;text-overflow:clip}
   .brand img{width:40px;height:42px}
   .header-phone{display:none}
   .menu-toggle{display:flex;justify-self:end}
@@ -59,6 +59,8 @@ a,button{touch-action:manipulation}
 }
 
 @media (max-width:680px){
+  .brand-copy{display:grid!important}
+  .brand-copy span{display:block!important;font-size:8px;letter-spacing:.12em;white-space:nowrap}
   .hero .actions{display:grid;grid-template-columns:1fr}
   .hero .actions .btn{width:100%;min-width:0}
   .showcase-stage{min-height:410px}
