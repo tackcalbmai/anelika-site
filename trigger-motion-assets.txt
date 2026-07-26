@@ -1,0 +1,1 @@
+apply modern motion assets across every html page
