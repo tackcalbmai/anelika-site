@@ -6,6 +6,7 @@
   const mobilebar = document.querySelector('.mobilebar');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
+  const mobileViewport = window.matchMedia('(max-width: 760px)').matches;
 
   /* Load the dedicated visual-motion layer on every page. */
   if (!document.querySelector('link[data-site-motion]')) {
@@ -16,6 +17,18 @@
     document.head.appendChild(motionStyles);
   }
   document.documentElement.classList.add('motion-enabled');
+
+  /* Add a separate mobile-only motion layer without changing desktop behaviour. */
+  if (mobileViewport && !reduceMotion) {
+    document.documentElement.classList.add('mobile-motion');
+    if (!document.querySelector('link[data-mobile-motion]')) {
+      const mobileMotionStyles = document.createElement('link');
+      mobileMotionStyles.rel = 'stylesheet';
+      mobileMotionStyles.href = '/site-mobile-motion.css?v=1';
+      mobileMotionStyles.dataset.mobileMotion = '';
+      document.head.appendChild(mobileMotionStyles);
+    }
+  }
 
   /* Guarantee that the ambient layer exists on every page. */
   let ambient = document.querySelector('.ambient');
