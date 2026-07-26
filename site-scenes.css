@@ -6,7 +6,7 @@
 .scene-accent{fill:#78dff4}
 .clean-squeegee{transform-box:fill-box;transform-origin:center;animation:squeegee 4.8s ease-in-out infinite}
 .clean-shine{animation:shine 3.6s ease-in-out infinite}
-.wipe-mask{transform-box:fill-box;transform-origin:center top;animation:wipe 4.8s ease-in-out infinite}
+.wipe-mask{transform-box:fill-box;transform-origin:center top!important;animation:wipe 4.8s ease-in-out infinite}
 .mower{transform-box:fill-box;transform-origin:center;animation:mower 5.2s ease-in-out infinite}
 .mower-wheel{transform-box:fill-box;transform-origin:center;animation:wheel 1.1s linear infinite}
 .grass-chip{animation:chip 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
