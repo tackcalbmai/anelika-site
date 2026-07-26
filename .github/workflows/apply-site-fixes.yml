@@ -1,0 +1,119 @@
+name: Apply visible site fixes
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-site-fixes.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply fixes and bust browser cache
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          html_files = [
+              Path('index.html'),
+              Path('uzkopsana/index.html'),
+              Path('teritoriju-kopsana/index.html'),
+              Path('siki-remontdarbi/index.html'),
+              Path('kontakti/index.html'),
+              Path('404.html'),
+          ]
+
+          for path in html_files:
+              text = path.read_text(encoding='utf-8')
+
+              # Force browsers to request the latest assets.
+              text = re.sub(r'/site-core\.css\?v=\d+', '/site-core.css?v=12', text)
+              text = re.sub(r'/site-scenes\.css\?v=\d+', '/site-scenes.css?v=12', text)
+              text = re.sub(r'/site-responsive\.css\?v=\d+', '/site-responsive.css?v=12', text)
+              text = re.sub(r'/site-polish\.css\?v=\d+', '/site-polish.css?v=12', text)
+              text = re.sub(r'/site\.js\?v=\d+', '/site.js?v=12', text)
+
+              # Visible location wording requested by the owner.
+              text = text.replace('Jelgava • Rīga • visā Latvijā', 'Jelgava • Rīga • Visa Latvija')
+              text = text.replace(
+                  'Uzkopšana, teritoriju kopšana un sīki remontdarbi visā Latvijā',
+                  'Uzkopšana, teritoriju kopšana un sīki remontdarbi — visa Latvija'
+              )
+              text = text.replace('Izbraukumi visā Latvijā', 'Izbraukumi pa visu Latviju')
+
+              # Remove decorative 01 / 02 / 03 numbering from the source itself.
+              text = re.sub(r'<span class="showcase-counter"[^>]*>.*?</span>', '', text, flags=re.S)
+              text = re.sub(r'<span class="card-index">.*?</span>', '', text, flags=re.S)
+              text = re.sub(r'<span class="fact-number">.*?</span>', '', text, flags=re.S)
+              text = re.sub(
+                  r'<span class="visual-code">(?:01 / TELPAS|02 / TERITORIJA|03 / REMONTDARBI)</span>',
+                  '',
+                  text
+              )
+
+              # Shorter CTA on the territory page.
+              text = text.replace(
+                  '<h2>Aprakstiet nepieciešamo teritorijas darbu</h2>',
+                  '<h2>Aprakstiet nepieciešamos darbus</h2>'
+              )
+
+              # Replace the crooked diagonal window tool with a clear vertical squeegee.
+              if path == Path('index.html'):
+                  text = re.sub(
+                      r'<g class="clean-squeegee">.*?</g>',
+                      '<g class="clean-squeegee"><path class="scene-line" d="M221 47v55M181 103h80M190 112h62"/></g>',
+                      text,
+                      count=1,
+                      flags=re.S,
+                  )
+
+                  # Replace unclear service-card icons with recognizable symbols.
+                  text = text.replace(
+                      '<div class="card-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 10h24M11 15h18M13 20h14M10 31l5-7h10l5 7M15 31v3M25 31v3"/></svg></div>',
+                      '<div class="card-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M14 16h12l3 18H11l3-18zM17 11h10v5M25 11l7-3M16 23h8M33 16v7M29.5 19.5h7"/></svg></div>'
+                  )
+                  text = text.replace(
+                      '<div class="card-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 31c8-1 11-8 12-18 7 2 12 7 14 15-7 3-14 2-20-4M13 24c6-3 11-8 15-14M8 34h25"/></svg></div>',
+                      '<div class="card-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 27h24l-4-12H15l-5 12M28 15l4-8h5M9 27h24"/><circle cx="13" cy="31" r="4"/><circle cx="29" cy="31" r="4"/></svg></div>'
+                  )
+                  text = text.replace(
+                      '<div class="card-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M11 30l8-8M23 18l7-7M8 11l8 8 4-4-8-8zM22 24l8 8 4-4-8-8z"/><circle cx="30" cy="10" r="4"/></svg></div>',
+                      '<div class="card-icon"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 31l18-18M24 8l8-2-2 8-5 2-3-3zM8 9l7 7-4 4-7-7zM23 24l9 9"/></svg></div>'
+                  )
+
+              if path == Path('uzkopsana/index.html'):
+                  text = re.sub(
+                      r'<g class="clean-squeegee">.*?</g>',
+                      '<g class="clean-squeegee"><path class="scene-line" d="M233 67v68M187 136h92M198 146h70"/></g>',
+                      text,
+                      count=1,
+                      flags=re.S,
+                  )
+
+              path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit updated site files
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html uzkopsana/index.html teritoriju-kopsana/index.html siki-remontdarbi/index.html kontakti/index.html 404.html
+          git commit -m "Publish visible site fixes and refresh cached assets"
+          git push
