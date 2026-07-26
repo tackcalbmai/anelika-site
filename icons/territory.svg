@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Teritoriju kopšana</title>
+  <g fill="none" stroke="#0A7EB0" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 36h30l7 11H10l5-11Z"/>
+    <path d="M20 36l4-11h14l6 11"/>
+    <path d="M39 25l8-13h7"/>
+    <path d="M48 12h7"/>
+    <circle cx="17" cy="50" r="5"/>
+    <circle cx="45" cy="50" r="5"/>
+    <path d="M8 55h48"/>
+    <path d="M7 31l3-5 3 5M52 31l3-6 3 6"/>
+  </g>
+  <path d="M21 30h17" stroke="#67D8F2" stroke-width="3.2" stroke-linecap="round"/>
+</svg>
