@@ -1,0 +1,61 @@
+name: Apply motion assets site-wide
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - trigger-motion-assets.txt
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add motion stylesheet and refresh script version
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          motion_link = '  <link rel="stylesheet" href="/site-motion.css?v=1" data-site-motion>\n'
+
+          for path in Path('.').rglob('*.html'):
+              text = path.read_text(encoding='utf-8')
+              original = text
+
+              if '/site-motion.css' not in text:
+                  anchor = '  <link rel="stylesheet" href="/site-polish.css?v=12">\n'
+                  if anchor in text:
+                      text = text.replace(anchor, anchor + motion_link, 1)
+                  else:
+                      text = text.replace('</head>', motion_link + '</head>', 1)
+
+              text = text.replace('/site.js?v=12', '/site.js?v=13')
+              text = text.replace('/site.js?v=11', '/site.js?v=13')
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  print(f'updated {path}')
+          PY
+
+      - name: Remove temporary workflow files
+        run: |
+          rm -f trigger-motion-assets.txt
+          rm -f .github/workflows/apply-motion-assets.yml
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Load modern motion system across all pages"
+            git push
+          fi
