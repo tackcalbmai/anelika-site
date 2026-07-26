@@ -1,0 +1,17 @@
+/* Language switcher shared by Latvian, Russian and English pages */
+.site-nav{position:relative}
+.language-switcher{display:flex;align-items:center;gap:3px;margin-left:auto;padding:3px;border:1px solid rgba(8,38,70,.10);border-radius:999px;background:rgba(255,255,255,.78);box-shadow:0 8px 24px rgba(7,31,61,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.language-switcher a{min-width:31px;height:31px;padding:0 8px;display:flex;align-items:center;justify-content:center;border-radius:999px;color:#526c80;font-size:11px;font-weight:900;letter-spacing:.08em;transition:background .2s,color .2s,transform .2s,box-shadow .2s}
+.language-switcher a:hover{color:#071f3d;background:#e8f7fb;transform:translateY(-1px)}
+.language-switcher a[aria-current="true"]{color:#fff;background:linear-gradient(135deg,#071f3d,#0b4773);box-shadow:0 7px 18px rgba(7,31,61,.22)}
+.localized-legal{grid-template-columns:1fr}
+.localized-legal .detail-card{min-height:auto}
+.localized-legal h3{margin-top:4px}
+.localized-legal p,.localized-legal li{line-height:1.7}
+.localized-legal ul{display:block;margin:12px 0 0 20px;padding:0}
+.localized-legal li{padding-left:0;margin:7px 0}
+.localized-legal li::before{display:none}
+@media (max-width:1120px){.language-switcher{margin-left:auto}}
+@media (max-width:860px){.site-nav .language-switcher{position:absolute;right:58px;top:50%;z-index:5;transform:translateY(-50%)}.language-switcher a{min-width:29px;height:29px;padding:0 6px;font-size:10px}.menu.is-open{padding-top:12px}}
+@media (max-width:390px){.site-nav .language-switcher{right:52px}.language-switcher{gap:1px;padding:2px}.language-switcher a{min-width:26px;height:27px;padding:0 4px;font-size:9px}.brand-copy span{display:none}}
+@media (prefers-reduced-motion:reduce){.language-switcher a{transition:none}}
