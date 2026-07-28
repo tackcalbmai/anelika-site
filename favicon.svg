@@ -1,4 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#183c37"/>
-  <path d="M19 47 29.5 17h5L45 47h-6l-2.2-7H27.1L25 47h-6Zm9.8-12h6.4L32 24.8 28.8 35Z" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Anelika">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef8fb"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173f68"/>
+      <stop offset="1" stop-color="#061f3f"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#67d8f2"/>
+      <stop offset="1" stop-color="#1289c5"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="496" height="496" rx="112" fill="url(#bg)" stroke="#dcebf1" stroke-width="16"/>
+  <g transform="translate(75 62) scale(.47)">
+    <path d="M360 38 586 560l-76 45-151-360-178 390-39-32L331 38Z" fill="url(#navy)"/>
+    <path d="M278 124C98 164 22 329 42 497c22 186 166 302 353 303 55 0 112-10 166-31l-25-48c-41 13-83 20-124 20-161 0-275-96-290-246-14-138 52-276 156-371Z" fill="url(#cyan)"/>
+    <path d="M226 282c-86 87-99 225-39 322 52 84 151 132 277 126-119-19-202-72-235-154-36-90-20-193 37-277Z" fill="url(#navy)" opacity=".82"/>
+    <g transform="rotate(-38 600 640)">
+      <rect x="474" y="584" width="250" height="56" rx="12" fill="url(#navy)"/>
+      <rect x="493" y="598" width="214" height="14" rx="7" fill="url(#cyan)"/>
+      <path d="M632 633h54v133c0 18-12 32-27 32s-27-14-27-32Z" fill="url(#navy)"/>
+      <circle cx="659" cy="766" r="7" fill="#69d8f1"/>
+    </g>
+    <path d="M354 430c0 43-20 64-64 64 44 0 64 21 64 65 0-44 21-65 65-65-44 0-65-21-65-64Z" fill="url(#cyan)"/>
+    <path d="M444 472c0 22-10 32-32 32 22 0 32 10 32 32 0-22 10-32 32-32-22 0-32-10-32-32Z" fill="url(#cyan)"/>
+  </g>
 </svg>
