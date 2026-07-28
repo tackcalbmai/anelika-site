@@ -1,0 +1,102 @@
+name: Finalize exact Anelika brand assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/finalize-brand-assets-v1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize-brand-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create versioned exact asset copies and update metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Preserve the approved files byte-for-byte. No redrawing or re-exporting.
+          cp anelika-share.jpg anelika-share-20260728.jpg
+          cp favicon.ico favicon-20260728.ico
+          cp favicon-48.png favicon-48-20260728.png
+          cp favicon-96.png favicon-96-20260728.png
+          cp apple-touch-icon.png apple-touch-icon-20260728.png
+
+          cat > site.webmanifest <<'JSON'
+          {
+            "name": "Anelika — Īpašumu serviss",
+            "short_name": "Anelika",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#ffffff",
+            "theme_color": "#071f3d",
+            "icons": [
+              {
+                "src": "/favicon-96-20260728.png",
+                "sizes": "96x96",
+                "type": "image/png"
+              },
+              {
+                "src": "/apple-touch-icon-20260728.png",
+                "sizes": "180x180",
+                "type": "image/png"
+              }
+            ]
+          }
+          JSON
+
+          python3 <<'PY'
+          from pathlib import Path
+
+          replacements = {
+              'href="/favicon.ico"': 'href="/favicon-20260728.ico"',
+              'href="/favicon-48.png"': 'href="/favicon-48-20260728.png"',
+              'href="/favicon-96.png"': 'href="/favicon-96-20260728.png"',
+              'href="/apple-touch-icon.png"': 'href="/apple-touch-icon-20260728.png"',
+              'https://www.anelika.lv/anelika-share.jpg': 'https://www.anelika.lv/anelika-share-20260728.jpg',
+              'https://www.anelika.lv/apple-touch-icon.png': 'https://www.anelika.lv/apple-touch-icon-20260728.png',
+              '<meta property="og:image:width" content="1200">': '<meta property="og:image:width" content="600">',
+              '<meta property="og:image:height" content="630">': '<meta property="og:image:height" content="315">',
+          }
+
+          for path in Path('.').rglob('*.html'):
+              if '.git' in path.parts:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              original = text
+              for old, new in replacements.items():
+                  text = text.replace(old, new)
+
+              manifest = '  <link rel="manifest" href="/site.webmanifest?v=20260728">\n'
+              if 'rel="manifest"' not in text and '</head>' in text:
+                  anchor = '  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-20260728.png">\n'
+                  if anchor in text:
+                      text = text.replace(anchor, anchor + manifest, 1)
+                  else:
+                      text = text.replace('</head>', manifest + '</head>', 1)
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit finalized brand metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Finalize exact Anelika favicon and WhatsApp preview"
+          git push origin HEAD:main
