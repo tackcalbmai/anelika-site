@@ -1,0 +1,20 @@
+{
+  "name": "Anelika — Īpašumu serviss",
+  "short_name": "Anelika",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#071f3d",
+  "icons": [
+    {
+      "src": "/favicon-96-20260728.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon-20260728.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
