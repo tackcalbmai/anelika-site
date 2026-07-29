@@ -3,7 +3,7 @@
   let i18nScript = document.querySelector('script[data-site-i18n]');
   if (!i18nScript) {
     i18nScript = document.createElement('script');
-    i18nScript.src = '/site-i18n.js?v=2';
+    i18nScript.src = '/site-i18n.js?v=3';
     i18nScript.async = false;
     i18nScript.dataset.siteI18n = '';
     document.head.appendChild(i18nScript);

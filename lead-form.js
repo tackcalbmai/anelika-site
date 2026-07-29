@@ -8,6 +8,7 @@
       email:'Lūdzu, ievadiet derīgu e-pasta adresi.',
       fileValidity:'Maksimālais faila izmērs ir 10 MB.',
       fileError:'Fotoattēls ir lielāks par 10 MB. Izvēlieties mazāku failu.',
+      fileEmpty:'Fails nav izvēlēts',
       sending:'Nosūtām…',
       notSpecified:'Nav norādīts'
     },
@@ -16,6 +17,7 @@
       email:'Введите корректный адрес электронной почты.',
       fileValidity:'Максимальный размер файла — 10 МБ.',
       fileError:'Фотография больше 10 МБ. Выберите файл меньшего размера.',
+      fileEmpty:'Файл не выбран',
       sending:'Отправляем…',
       notSpecified:'Не указано'
     },
@@ -24,6 +26,7 @@
       email:'Please enter a valid email address.',
       fileValidity:'The maximum file size is 10 MB.',
       fileError:'The photo is larger than 10 MB. Please choose a smaller file.',
+      fileEmpty:'No file selected',
       sending:'Sending…',
       notSpecified:'Not specified'
     }
@@ -39,6 +42,7 @@
     const submit = form.querySelector('[type="submit"]');
     const error = form.querySelector('[data-lead-error]');
     const attachment = form.querySelector('input[type="file"]');
+    const attachmentName = form.querySelector('[data-lead-file-name]');
 
     form.querySelectorAll('[required], input[type="email"]').forEach(field => {
       field.addEventListener('invalid', () => {
@@ -52,6 +56,7 @@
 
     attachment?.addEventListener('change', () => {
       const file = attachment.files?.[0];
+      if (attachmentName) attachmentName.textContent = file?.name || copy().fileEmpty;
       const tooLarge = file && file.size > 10 * 1024 * 1024;
       attachment.setCustomValidity(tooLarge ? copy().fileValidity : '');
       if (tooLarge) {
