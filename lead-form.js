@@ -2,6 +2,33 @@
   const storageKey = 'anelika_pending_lead_v1';
   const form = document.querySelector('[data-lead-form]');
   const thanksPage = document.body.dataset.page === 'paldies';
+  const messages = {
+    lv: {
+      required:'Lūdzu, aizpildiet šo lauku.',
+      email:'Lūdzu, ievadiet derīgu e-pasta adresi.',
+      fileValidity:'Maksimālais faila izmērs ir 10 MB.',
+      fileError:'Fotoattēls ir lielāks par 10 MB. Izvēlieties mazāku failu.',
+      sending:'Nosūtām…',
+      notSpecified:'Nav norādīts'
+    },
+    ru: {
+      required:'Пожалуйста, заполните это поле.',
+      email:'Введите корректный адрес электронной почты.',
+      fileValidity:'Максимальный размер файла — 10 МБ.',
+      fileError:'Фотография больше 10 МБ. Выберите файл меньшего размера.',
+      sending:'Отправляем…',
+      notSpecified:'Не указано'
+    },
+    en: {
+      required:'Please complete this field.',
+      email:'Please enter a valid email address.',
+      fileValidity:'The maximum file size is 10 MB.',
+      fileError:'The photo is larger than 10 MB. Please choose a smaller file.',
+      sending:'Sending…',
+      notSpecified:'Not specified'
+    }
+  };
+  const copy = () => messages[document.documentElement.lang] || messages.lv;
 
   const track = (name, parameters = {}) => {
     if (typeof window.gtag !== 'function') return;
@@ -13,15 +40,27 @@
     const error = form.querySelector('[data-lead-error]');
     const attachment = form.querySelector('input[type="file"]');
 
+    form.querySelectorAll('[required], input[type="email"]').forEach(field => {
+      field.addEventListener('invalid', () => {
+        if (field.validity.valueMissing) field.setCustomValidity(copy().required);
+        else if (field.validity.typeMismatch) field.setCustomValidity(copy().email);
+      });
+      ['input','change'].forEach(eventName => {
+        field.addEventListener(eventName, () => field.setCustomValidity(''));
+      });
+    });
+
     attachment?.addEventListener('change', () => {
       const file = attachment.files?.[0];
       const tooLarge = file && file.size > 10 * 1024 * 1024;
-      attachment.setCustomValidity(tooLarge ? 'Maksimālais faila izmērs ir 10 MB.' : '');
+      attachment.setCustomValidity(tooLarge ? copy().fileValidity : '');
       if (tooLarge) {
-        error.textContent = 'Fotoattēls ir lielāks par 10 MB. Izvēlieties mazāku failu.';
-        error.classList.add('is-visible');
+        if (error) {
+          error.textContent = copy().fileError;
+          error.classList.add('is-visible');
+        }
       } else {
-        error.classList.remove('is-visible');
+        error?.classList.remove('is-visible');
       }
     });
 
@@ -32,7 +71,7 @@
         return;
       }
 
-      const service = form.querySelector('[name="Pakalpojums"]')?.value || 'Nav norādīts';
+      const service = form.querySelector('[name="Pakalpojums"]')?.value || copy().notSpecified;
       const source = form.dataset.leadSource || 'website';
 
       try {
@@ -53,7 +92,7 @@
       if (submit) {
         submit.disabled = true;
         submit.dataset.originalText = submit.textContent;
-        submit.textContent = 'Nosūtām…';
+        submit.textContent = copy().sending;
       }
     });
 
