@@ -100,6 +100,26 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  /* Measure high-intent contact actions without treating every click as a lead. */
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || typeof window.gtag !== 'function') return;
+    const href = link.getAttribute('href') || '';
+
+    if (href.startsWith('tel:')) {
+      window.gtag('event', 'click_to_call', {
+        contact_method: 'phone',
+        link_url: href,
+        page_path: window.location.pathname
+      });
+    } else if (href.startsWith('mailto:')) {
+      window.gtag('event', 'click_to_email', {
+        contact_method: 'email',
+        page_path: window.location.pathname
+      });
+    }
+  });
+
   /* Final copy and illustration cleanup */
   document.querySelectorAll('.eyebrow').forEach(label => {
     if (label.textContent.includes('visā Latvijā')) {

@@ -1,0 +1,302 @@
+.lead-section{
+  position:relative;
+  padding:78px 0;
+  overflow:hidden;
+}
+.lead-section::before{
+  content:"";
+  position:absolute;
+  inset:12% auto auto -120px;
+  width:330px;
+  height:330px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(103,216,242,.17),rgba(103,216,242,0) 70%);
+  pointer-events:none;
+}
+.lead-layout{
+  display:grid;
+  grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);
+  gap:24px;
+  align-items:start;
+}
+.lead-intro{
+  position:sticky;
+  top:104px;
+  padding:36px;
+  border-radius:28px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 88% 8%,rgba(103,216,242,.2),transparent 16rem),
+    linear-gradient(145deg,var(--navy),#0b436f);
+  box-shadow:var(--shadow-strong);
+  overflow:hidden;
+}
+.lead-intro::after{
+  content:"";
+  position:absolute;
+  right:-55px;
+  bottom:-72px;
+  width:230px;
+  height:240px;
+  background:url("/logo-mark.svg") center/contain no-repeat;
+  opacity:.16;
+  filter:brightness(1.7);
+  transform:rotate(-9deg);
+  pointer-events:none;
+}
+.lead-intro .label{color:#8ce4f6}
+.lead-intro h2{
+  position:relative;
+  z-index:1;
+  margin:14px 0 15px;
+  font-size:clamp(31px,3.7vw,48px);
+}
+.lead-intro p{
+  position:relative;
+  z-index:1;
+  color:#c8dce8;
+  font-size:17px;
+}
+.lead-trust{
+  position:relative;
+  z-index:1;
+  display:grid;
+  gap:10px;
+  margin-top:24px;
+}
+.lead-trust span{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height:42px;
+  padding:9px 12px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:13px;
+  background:rgba(255,255,255,.07);
+  color:#e7f3f7;
+  font-size:13px;
+  font-weight:760;
+}
+.lead-trust span::before{
+  content:"";
+  width:9px;
+  height:9px;
+  flex:0 0 auto;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 0 5px rgba(103,216,242,.12);
+}
+.lead-form{
+  padding:36px;
+  border:1px solid rgba(8,38,70,.1);
+  border-radius:28px;
+  background:rgba(255,255,255,.91);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(16px);
+}
+.lead-form-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:27px;
+}
+.lead-form-head h2{
+  margin:0 0 7px;
+  font-size:30px;
+}
+.lead-form-head p{
+  margin:0;
+  color:var(--text);
+}
+.lead-time{
+  flex:0 0 auto;
+  padding:8px 11px;
+  border-radius:999px;
+  color:#087bab;
+  background:#e8f7fb;
+  font-size:12px;
+  font-weight:850;
+}
+.lead-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.lead-field{
+  display:grid;
+  gap:7px;
+}
+.lead-field--wide{grid-column:1/-1}
+.lead-field label,
+.lead-field legend{
+  color:var(--ink);
+  font-size:13px;
+  font-weight:820;
+}
+.lead-field label span,
+.lead-field legend span{color:#748698;font-weight:650}
+.lead-field input,
+.lead-field select,
+.lead-field textarea{
+  width:100%;
+  border:1px solid rgba(8,38,70,.18);
+  border-radius:13px;
+  background:#fbfdfe;
+  color:var(--ink);
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.lead-field input,
+.lead-field select{min-height:51px;padding:0 14px}
+.lead-field textarea{
+  min-height:126px;
+  resize:vertical;
+  padding:13px 14px;
+  line-height:1.5;
+}
+.lead-field input:hover,
+.lead-field select:hover,
+.lead-field textarea:hover{border-color:rgba(21,155,209,.38)}
+.lead-field input:focus,
+.lead-field select:focus,
+.lead-field textarea:focus{
+  outline:0;
+  border-color:var(--blue);
+  background:#fff;
+  box-shadow:0 0 0 4px rgba(21,155,209,.11);
+}
+.lead-field input[type="file"]{
+  min-height:58px;
+  padding:10px 12px;
+  color:var(--text);
+  background:#f6fafb;
+}
+.lead-field input[type="file"]::file-selector-button{
+  margin-right:12px;
+  padding:8px 11px;
+  border:0;
+  border-radius:9px;
+  color:#fff;
+  background:var(--navy);
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+.lead-help{
+  color:#748698;
+  font-size:12px;
+}
+.lead-consent{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-top:19px;
+  color:var(--text);
+  font-size:13px;
+}
+.lead-consent input{
+  width:18px;
+  height:18px;
+  flex:0 0 auto;
+  margin-top:2px;
+  accent-color:var(--blue);
+}
+.lead-consent a{
+  color:#087bab;
+  font-weight:780;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.lead-submit-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:23px;
+}
+.lead-submit{
+  min-width:235px;
+  border:0;
+}
+.lead-submit[disabled]{
+  cursor:wait;
+  opacity:.72;
+  transform:none;
+}
+.lead-submit-note{
+  margin:0;
+  color:#748698;
+  font-size:12px;
+}
+.lead-honey{
+  position:absolute!important;
+  left:-10000px!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+}
+.lead-error{
+  display:none;
+  margin:16px 0 0;
+  padding:11px 13px;
+  border-radius:12px;
+  color:#8a1f2f;
+  background:#fff1f3;
+  font-size:13px;
+  font-weight:720;
+}
+.lead-error.is-visible{display:block}
+
+.thanks-card{
+  width:min(760px,calc(100% - 28px));
+  margin:74px auto;
+  padding:54px;
+  border:1px solid rgba(8,38,70,.1);
+  border-radius:32px;
+  background:rgba(255,255,255,.92);
+  box-shadow:var(--shadow-strong);
+  text-align:center;
+}
+.thanks-icon{
+  display:grid;
+  place-items:center;
+  width:76px;
+  height:76px;
+  margin:0 auto 24px;
+  border-radius:50%;
+  color:#fff;
+  background:linear-gradient(145deg,var(--blue),var(--navy-2));
+  box-shadow:0 15px 35px rgba(21,155,209,.24);
+}
+.thanks-icon svg{width:38px;stroke:currentColor;stroke-width:2.5;fill:none}
+.thanks-card h1{font-size:clamp(40px,6vw,64px)}
+.thanks-card p{
+  max-width:590px;
+  margin:0 auto 22px;
+  color:var(--text);
+  font-size:18px;
+}
+.thanks-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:11px;
+  margin-top:28px;
+}
+
+@media(max-width:900px){
+  .lead-layout{grid-template-columns:1fr}
+  .lead-intro{position:relative;top:auto}
+}
+@media(max-width:680px){
+  .lead-section{padding:56px 0}
+  .lead-intro,.lead-form{padding:26px 22px;border-radius:24px}
+  .lead-form-head{display:grid;gap:12px}
+  .lead-time{justify-self:start}
+  .lead-grid{grid-template-columns:1fr}
+  .lead-field--wide{grid-column:auto}
+  .lead-submit-row{align-items:stretch;flex-direction:column}
+  .lead-submit{width:100%;min-width:0}
+  .thanks-card{margin:48px auto;padding:38px 22px}
+  .thanks-actions{display:grid}
+}
