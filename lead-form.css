@@ -3,6 +3,7 @@
   padding:78px 0;
   overflow:hidden;
 }
+.page-hero + .lead-section{padding-top:28px}
 .lead-section::before{
   content:"";
   position:absolute;
@@ -44,11 +45,10 @@
   transform:rotate(-9deg);
   pointer-events:none;
 }
-.lead-intro .label{color:#8ce4f6}
 .lead-intro h2{
   position:relative;
   z-index:1;
-  margin:14px 0 15px;
+  margin:0 0 15px;
   font-size:clamp(31px,3.7vw,48px);
 }
 .lead-intro p{
@@ -56,35 +56,6 @@
   z-index:1;
   color:#c8dce8;
   font-size:17px;
-}
-.lead-trust{
-  position:relative;
-  z-index:1;
-  display:grid;
-  gap:10px;
-  margin-top:24px;
-}
-.lead-trust span{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-height:42px;
-  padding:9px 12px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:13px;
-  background:rgba(255,255,255,.07);
-  color:#e7f3f7;
-  font-size:13px;
-  font-weight:760;
-}
-.lead-trust span::before{
-  content:"";
-  width:9px;
-  height:9px;
-  flex:0 0 auto;
-  border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 0 5px rgba(103,216,242,.12);
 }
 .lead-form{
   padding:36px;
@@ -290,6 +261,7 @@
 }
 @media(max-width:680px){
   .lead-section{padding:56px 0}
+  .page-hero + .lead-section{padding-top:20px}
   .lead-intro,.lead-form{padding:26px 22px;border-radius:24px}
   .lead-form-head{display:grid;gap:12px}
   .lead-time{justify-self:start}

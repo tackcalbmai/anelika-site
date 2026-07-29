@@ -61,6 +61,7 @@
   </script>
   <link rel="stylesheet" href="/footer.css?v=1">
   <link rel="stylesheet" href="/cookie-legal.css?v=1">
+  <link rel="stylesheet" href="/lead-form.css?v=2">
   <link rel="manifest" href="/site.webmanifest?v=20260728">
 </head>
 <body data-page="teritorija">
@@ -73,14 +74,46 @@
   <main id="saturs">
     <section class="page-hero">
       <div class="wrap page-hero-grid">
-        <div><span class="eyebrow" style="color:#087bab;background:rgba(103,216,242,.10);border-color:rgba(21,155,209,.18)">Jelgava • Rīga • Visa Latvija</span><h1>Teritoriju kopšana</h1><p class="lead">Regulāra un sezonāla pagalmu, uzņēmumu teritoriju, nomas īpašumu un citu āra objektu kopšana.</p><div class="actions"><a class="btn btn-dark" href="tel:+37129752319">Zvanīt</a><a class="btn btn-secondary" href="mailto:anelikasia@gmail.com?subject=Teritoriju%20kop%C5%A1ana&amp;body=Labdien!%0A%0AAdrese:%20%0AV%C4%93lamais%20laiks:%20%0ATeritorijas%20aptuvenais%20apjoms:%20%0ADarba%20apraksts:%20%0A">Nosūtīt pieprasījumu</a></div></div>
+        <div><span class="eyebrow" style="color:#087bab;background:rgba(103,216,242,.10);border-color:rgba(21,155,209,.18)">Jelgava • Rīga • Visa Latvija</span><h1>Teritoriju kopšana</h1><p class="lead">Regulāra un sezonāla pagalmu, uzņēmumu teritoriju, nomas īpašumu un citu āra objektu kopšana.</p><div class="actions"><a class="btn btn-dark" href="tel:+37129752319">Zvanīt</a><a class="btn btn-secondary" href="#pieteikums">Saņemt cenas piedāvājumu</a></div></div>
         <div class="service-visual" data-tilt><span class="visual-title">TERITORIJU KOPŠANA</span><svg class="visual-art" viewBox="0 0 560 340" aria-hidden="true"><path class="scene-soft" d="M38 282h485"/><path class="scene-soft" d="M51 282l10-37 8 37 11-49 8 49 12-31 8 31M119 282l10-41 8 41 12-53 8 53M423 282l10-39 8 39 11-50 8 50 12-31 8 31M484 282l10-46 8 46 11-37 8 37"/><path class="scene-line" d="M139 282h266"/><g class="mower"><path class="scene-line" d="M177 204h143l33 49H152zM316 204l58-115h44M195 204l23-49h72l27 49M148 253h208M374 89h66"/><circle class="scene-fill mower-wheel" cx="183" cy="262" r="26"/><circle class="scene-fill mower-wheel" cx="326" cy="262" r="26"/><g fill="#78dff4"><circle class="grass-chip" cx="359" cy="233" r="4"/><circle class="grass-chip" cx="375" cy="221" r="3"/><circle class="grass-chip" cx="388" cy="241" r="3"/></g></g><circle class="scene-fill" cx="473" cy="76" r="31"/><path class="scene-soft" d="M473 33v18M473 101v18M430 76h18M498 76h18"/></svg><div class="visual-tags"><span>Zāles pļaušana</span><span>Lapas un zari</span><span>Sezonas darbi</span></div></div>
+      </div>
+    </section>
+
+    <section class="lead-section" id="pieteikums">
+      <div class="wrap lead-layout">
+        <aside class="lead-intro">
+          <h2>Aprakstiet teritoriju</h2>
+          <p>Nosūtiet pamatinformāciju. Izvērtēsim darba apjomu un sazināsimies, lai vienotos par nosacījumiem.</p>
+        </aside>
+        <form class="lead-form" action="https://formsubmit.co/anelikasia@gmail.com" method="POST" enctype="multipart/form-data" data-lead-form data-lead-source="territory_page">
+          <input type="hidden" name="_subject" value="Jauns teritoriju kopšanas pieteikums no anelika.lv">
+          <input type="hidden" name="_next" value="https://www.anelika.lv/paldies/">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_url" value="https://www.anelika.lv/teritoriju-kopsana/">
+          <input class="lead-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          <div class="lead-form-head"><div><h2>Saņemt cenas piedāvājumu</h2><p>Aizpildīšana aizņem aptuveni 2 minūtes.</p></div><span class="lead-time">Atbildam darba laikā</span></div>
+          <div class="lead-grid">
+            <div class="lead-field"><label for="territory-name">Vārds <span>(nav obligāti)</span></label><input id="territory-name" name="Vārds" type="text" autocomplete="name"></div>
+            <div class="lead-field"><label for="territory-phone">Tālrunis</label><input id="territory-phone" name="Tālrunis" type="tel" autocomplete="tel" inputmode="tel" placeholder="+371" required></div>
+            <div class="lead-field"><label for="territory-email">E-pasts <span>(nav obligāti)</span></label><input id="territory-email" name="email" type="email" autocomplete="email"></div>
+            <div class="lead-field"><label for="territory-location">Pilsēta vai adrese</label><input id="territory-location" name="Pilsēta vai adrese" type="text" autocomplete="address-line1" required></div>
+            <div class="lead-field"><label for="territory-service">Teritorijas kopšanas veids</label><select id="territory-service" name="Pakalpojums" required><option value="">Izvēlieties</option><option value="Zāles pļaušana">Zāles pļaušana</option><option value="Lapu un zaru savākšana">Lapu un zaru savākšana</option><option value="Teritorijas sakopšana">Teritorijas sakopšana</option><option value="Sniega tīrīšana">Sniega tīrīšana</option><option value="Regulāra teritorijas kopšana">Regulāra teritorijas kopšana</option><option value="Cits teritorijas darbs">Cits teritorijas darbs</option></select></div>
+            <div class="lead-field"><label for="territory-area">Aptuvenā teritorijas platība <span>(m²)</span></label><input id="territory-area" name="Teritorijas platība" type="text" inputmode="decimal" placeholder="Piemēram, 1200"></div>
+            <div class="lead-field lead-field--wide"><label for="territory-time">Vēlamais datums vai periods <span>(nav obligāti)</span></label><input id="territory-time" name="Vēlamais laiks" type="text" placeholder="Piemēram, nākamnedēļ"></div>
+            <div class="lead-field lead-field--wide"><label for="territory-description">Īss darba apraksts</label><textarea id="territory-description" name="Darba apraksts" placeholder="Teritorijas stāvoklis, piekļuve un nepieciešamie darbi" required></textarea></div>
+            <div class="lead-field lead-field--wide"><label for="territory-photo">Fotoattēls <span>(nav obligāti)</span></label><input id="territory-photo" name="Pielikums" type="file" accept="image/png,image/jpeg,image/webp"><small class="lead-help">JPG, PNG vai WEBP, līdz 10 MB.</small></div>
+          </div>
+          <label class="lead-consent"><input type="checkbox" name="Piekrišana datu apstrādei" value="Jā" required><span>Piekrītu, ka mani dati tiek izmantoti, lai atbildētu uz pieprasījumu, saskaņā ar <a href="/privatuma-politika/" target="_blank" rel="noopener">privātuma politiku</a>.</span></label>
+          <p class="lead-error" data-lead-error role="alert"></p>
+          <div class="lead-submit-row"><button class="btn btn-dark lead-submit" type="submit">Saņemt cenas piedāvājumu</button><p class="lead-submit-note">Dati tiks nosūtīti SIA “Anelika”.</p></div>
+        </form>
       </div>
     </section>
 
     <section class="section-tight"><div class="wrap"><div class="section-head"><span class="label">Darbu veidi</span><h2>Veicamie darbi</h2><p class="section-copy">Darba apjomu, nepieciešamo tehniku un cenu nosakām pēc teritorijas apraksta vai apskates.</p></div><div class="detail-grid"><article class="detail-card" data-spotlight><h3>Zāles pļaušana</h3><p>Regulārai vai vienreizējai teritorijas sakopšanai.</p><ul><li>Zāliena pļaušana</li><li>Malu un grūti pieejamu vietu appļaušana</li><li>Pļautās masas savākšana</li><li>Aizaugušu vietu novērtēšana</li></ul></article><article class="detail-card" data-spotlight><h3>Lapu un zaru savākšana</h3><p>Pavasara, rudens un vētras seku sakopšanai.</p><ul><li>Lapu savākšana</li><li>Zaru un neliela apjoma atkritumu savākšana</li><li>Teritorijas slaucīšana</li><li>Izvešana</li></ul></article><article class="detail-card" data-spotlight><h3>Teritorijas sakopšana</h3><p>Pagalmiem, nomas īpašumiem un uzņēmumu teritorijām.</p><ul><li>Nezāļu un aizauguma pļaušana</li><li>Nelielu krūmu apgriešana</li><li>Celiņu un malu sakopšana</li><li>Sezonas sagatavošanas darbi</li></ul></article><article class="detail-card" data-spotlight><h3>Ziemas darbi</h3><p>Atbilstoši laikapstākļiem.</p><ul><li>Sniega tīrīšana</li><li>Celiņu un ieeju attīrīšana</li><li>Kaisāmā materiāla izmantošana</li><li>Regulāra teritorijas uzturēšana</li></ul></article></div><div class="note">Ārpus Jelgavas un Rīgas izbraukuma izmaksas aprēķinām pēc attāluma. Lielākiem vai stipri aizaugušiem objektiem var būt nepieciešama iepriekšēja apskate.</div></div></section>
 
-    <section class="section-tight"><div class="wrap cta"><div><h2>Aprakstiet nepieciešamos darbus</h2><p>Norādiet adresi, aptuveno teritorijas apjomu, vēlamo laiku un pievienojiet fotoattēlus, lai varam precīzāk novērtēt darbu.</p></div><div class="cta-actions"><a class="btn btn-dark" href="tel:+37129752319">Zvanīt</a><a class="btn btn-secondary" href="mailto:anelikasia@gmail.com?subject=Teritoriju%20kop%C5%A1ana&amp;body=Labdien!%0A%0AAdrese:%20%0AV%C4%93lamais%20laiks:%20%0ATeritorijas%20aptuvenais%20apjoms:%20%0ADarba%20apraksts:%20%0A">Nosūtīt pieprasījumu</a></div></div></section>
+    <section class="section-tight"><div class="wrap cta"><div><h2>Vai ērtāk pārrunāt pa tālruni?</h2><p>Zvaniet darba laikā. Ja nepieciešams aprēķins pēc teritorijas informācijas, izmantojiet pieteikuma formu.</p></div><div class="cta-actions"><a class="btn btn-dark" href="tel:+37129752319">Zvanīt</a><a class="btn btn-secondary" href="#pieteikums">Aizpildīt formu</a></div></div></section>
   </main>
 
   <footer class="site-footer">
@@ -115,11 +148,12 @@
 </footer>
   <aside class="cookie-banner" data-cookie-banner hidden role="dialog" aria-live="polite" aria-label="Sīkdatņu paziņojums">
   <div class="cookie-symbol" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M38 22a9 9 0 0 1-12-12A16 16 0 1 0 38 22Z"/><circle cx="17" cy="20" r="2.2"/><circle cx="27" cy="29" r="2.2"/><circle cx="16" cy="32" r="1.8"/></svg></div>
-  <div class="cookie-copy"><strong>Sīkdatnes un privātums</strong><p>Vietnē netiek izmantotas analītikas vai reklāmas sīkdatnes. Lai šo paziņojumu pēc apstiprināšanas vairs nerādītu, pārlūkā tiek saglabāta tikai jūsu izvēle.</p><a href="/privatuma-politika/#sikdatnes">Uzzināt vairāk</a></div>
-  <button class="cookie-accept" type="button" data-cookie-accept>Sapratu</button>
+  <div class="cookie-copy"><strong>Sīkdatņu izvēle</strong><p>Ar jūsu piekrišanu izmantojam Google Analytics, lai saprastu, kuras vietnes sadaļas ir noderīgas. Reklāmas un personalizācijas sīkdatnes neizmantojam.</p><a href="/privatuma-politika/#sikdatnes">Uzzināt vairāk</a></div>
+  <button class="cookie-accept" type="button" data-cookie-accept>Atļaut analītiku</button>
 </aside>
   <div class="mobilebar" aria-label="Ātrā saziņa"><a href="tel:+37129752319">Zvanīt</a><a href="mailto:anelikasia@gmail.com?subject=Teritoriju%20kop%C5%A1ana&amp;body=Labdien!%0A%0AAdrese:%20%0AV%C4%93lamais%20laiks:%20%0ATeritorijas%20aptuvenais%20apjoms:%20%0ADarba%20apraksts:%20%0A">E-pasts</a></div>
-  <script src="/site.js?v=13" defer></script>
-  <script src="/footer-cookie.js?v=1" defer></script>
+  <script src="/site.js?v=14" defer></script>
+  <script src="/footer-cookie.js?v=2" defer></script>
+  <script src="/lead-form.js?v=2" defer></script>
 </body>
 </html>

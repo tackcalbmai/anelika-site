@@ -61,6 +61,7 @@
   </script>
   <link rel="stylesheet" href="/footer.css?v=1">
   <link rel="stylesheet" href="/cookie-legal.css?v=1">
+  <link rel="stylesheet" href="/lead-form.css?v=2">
   <link rel="manifest" href="/site.webmanifest?v=20260728">
 </head>
 <body data-page="remonti">
@@ -73,14 +74,46 @@
   <main id="saturs">
     <section class="page-hero">
       <div class="wrap page-hero-grid">
-        <div><span class="eyebrow" style="color:#087bab;background:rgba(103,216,242,.10);border-color:rgba(21,155,209,.18)">Jelgava • Rīga • Visa Latvija</span><h1>Sīki remontdarbi</h1><p class="lead">Nelieli montāžas, apdares un vienkārši santehnikas darbi mājām, dzīvokļiem, birojiem un nomas īpašumiem.</p><div class="actions"><a class="btn btn-dark" href="tel:+37129752319">Zvanīt</a><a class="btn btn-secondary" href="mailto:anelikasia@gmail.com?subject=S%C4%ABki%20remontdarbi&amp;body=Labdien!%0A%0AAdrese:%20%0AV%C4%93lamais%20laiks:%20%0ADarba%20apraksts:%20%0A">Nosūtīt pieprasījumu</a></div></div>
+        <div><span class="eyebrow" style="color:#087bab;background:rgba(103,216,242,.10);border-color:rgba(21,155,209,.18)">Jelgava • Rīga • Visa Latvija</span><h1>Sīki remontdarbi</h1><p class="lead">Nelieli montāžas, apdares un vienkārši santehnikas darbi mājām, dzīvokļiem, birojiem un nomas īpašumiem.</p><div class="actions"><a class="btn btn-dark" href="tel:+37129752319">Zvanīt</a><a class="btn btn-secondary" href="#pieteikums">Saņemt cenas piedāvājumu</a></div></div>
         <div class="service-visual" data-tilt><span class="visual-title">SĪKI REMONTDARBI</span><svg class="visual-art" viewBox="0 0 560 340" aria-hidden="true"><rect class="scene-fill" x="55" y="43" width="300" height="225" rx="21"/><path class="scene-soft" d="M90 91h230M90 140h230M90 189h130"/><rect class="shelf-board shelf-glow" x="92" y="180" width="230" height="20" rx="6"/><path class="shelf-bracket" d="M128 200v50h50M128 250l46-46M281 200v50h-50M281 250l-46-46"/><g class="level-outline"><rect class="level-fill" x="137" y="136" width="142" height="25" rx="9"/><path d="M157 149h102"/><circle class="level-bubble" cx="208" cy="149" r="6"/></g><g class="repair-drill"><path d="M390 161h91l26 31-26 31h-91zM410 223l-22 75h43l23-75M507 192h41"/><path class="repair-bit" d="M526 192h27"/></g><circle class="scene-fill" cx="329" cy="192" r="8"/><path class="scene-line" d="M322 192h14M329 185v14"/><path class="scene-soft" d="M378 294h170"/></svg><div class="visual-tags"><span>Montāža</span><span>Apdares labojumi</span><span>Santehnikas sīkdarbi</span></div></div>
+      </div>
+    </section>
+
+    <section class="lead-section" id="pieteikums">
+      <div class="wrap lead-layout">
+        <aside class="lead-intro">
+          <h2>Aprakstiet remontdarbu</h2>
+          <p>Nosūtiet pamatinformāciju. Izvērtēsim darba apjomu un sazināsimies, lai vienotos par nosacījumiem.</p>
+        </aside>
+        <form class="lead-form" action="https://formsubmit.co/anelikasia@gmail.com" method="POST" enctype="multipart/form-data" data-lead-form data-lead-source="repair_page">
+          <input type="hidden" name="_subject" value="Jauns sīko remontdarbu pieteikums no anelika.lv">
+          <input type="hidden" name="_next" value="https://www.anelika.lv/paldies/">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_url" value="https://www.anelika.lv/siki-remontdarbi/">
+          <input class="lead-honey" type="text" name="_honey" tabindex="-1" autocomplete="off">
+          <div class="lead-form-head"><div><h2>Saņemt cenas piedāvājumu</h2><p>Aizpildīšana aizņem aptuveni 2 minūtes.</p></div><span class="lead-time">Atbildam darba laikā</span></div>
+          <div class="lead-grid">
+            <div class="lead-field"><label for="repair-name">Vārds <span>(nav obligāti)</span></label><input id="repair-name" name="Vārds" type="text" autocomplete="name"></div>
+            <div class="lead-field"><label for="repair-phone">Tālrunis</label><input id="repair-phone" name="Tālrunis" type="tel" autocomplete="tel" inputmode="tel" placeholder="+371" required></div>
+            <div class="lead-field"><label for="repair-email">E-pasts <span>(nav obligāti)</span></label><input id="repair-email" name="email" type="email" autocomplete="email"></div>
+            <div class="lead-field"><label for="repair-location">Pilsēta vai adrese</label><input id="repair-location" name="Pilsēta vai adrese" type="text" autocomplete="address-line1" required></div>
+            <div class="lead-field"><label for="repair-service">Remontdarba veids</label><select id="repair-service" name="Pakalpojums" required><option value="">Izvēlieties</option><option value="Mēbeļu montāža">Mēbeļu montāža</option><option value="Plauktu, stangu vai stiprinājumu uzstādīšana">Plauktu, stangu vai stiprinājumu uzstādīšana</option><option value="Nelieli apdares labojumi">Nelieli apdares labojumi</option><option value="Silikona un blīvējumu darbi">Silikona un blīvējumu darbi</option><option value="Vienkārši santehnikas darbi">Vienkārši santehnikas darbi</option><option value="Cits sīks remontdarbs">Cits sīks remontdarbs</option></select></div>
+            <div class="lead-field"><label for="repair-scope">Aptuvenais darbu apjoms <span>(nav obligāti)</span></label><input id="repair-scope" name="Darbu apjoms" type="text" placeholder="Piemēram, 2 skapji un 3 plaukti"></div>
+            <div class="lead-field lead-field--wide"><label for="repair-time">Vēlamais datums vai periods <span>(nav obligāti)</span></label><input id="repair-time" name="Vēlamais laiks" type="text" placeholder="Piemēram, nākamnedēļ"></div>
+            <div class="lead-field lead-field--wide"><label for="repair-description">Īss darba apraksts</label><textarea id="repair-description" name="Darba apraksts" placeholder="Kas jāuzstāda vai jālabo, izmēri un esošais stāvoklis" required></textarea></div>
+            <div class="lead-field lead-field--wide"><label for="repair-photo">Fotoattēls <span>(nav obligāti)</span></label><input id="repair-photo" name="Pielikums" type="file" accept="image/png,image/jpeg,image/webp"><small class="lead-help">JPG, PNG vai WEBP, līdz 10 MB.</small></div>
+          </div>
+          <label class="lead-consent"><input type="checkbox" name="Piekrišana datu apstrādei" value="Jā" required><span>Piekrītu, ka mani dati tiek izmantoti, lai atbildētu uz pieprasījumu, saskaņā ar <a href="/privatuma-politika/" target="_blank" rel="noopener">privātuma politiku</a>.</span></label>
+          <p class="lead-error" data-lead-error role="alert"></p>
+          <div class="lead-submit-row"><button class="btn btn-dark lead-submit" type="submit">Saņemt cenas piedāvājumu</button><p class="lead-submit-note">Dati tiks nosūtīti SIA “Anelika”.</p></div>
+        </form>
       </div>
     </section>
 
     <section class="section-tight"><div class="wrap"><div class="section-head"><span class="label">Darbu veidi</span><h2>Veicamie darbi</h2><p class="section-copy">Darba apjomu, nepieciešamos materiālus un cenu nosakām pēc darba apraksta vai apskates.</p></div><div class="detail-grid"><article class="detail-card" data-spotlight><h3>Montāžas darbi</h3><p>Nelieliem mājokļa un biroja uzlabojumiem.</p><ul><li>Mēbeļu montāža</li><li>Plauktu un aizkaru stangu uzstādīšana</li><li>Rokturu un furnitūras nomaiņa</li><li>Sadzīves priekšmetu stiprināšana</li></ul></article><article class="detail-card" data-spotlight><h3>Nelieli apdares labojumi</h3><p>Lokāliem bojājumiem un nolietojumam.</p><ul><li>Nelielu caurumu un plaisu aizpildīšana</li><li>Lokāli krāsošanas labojumi</li><li>Līstu un dekoratīvu elementu nostiprināšana</li><li>Citi neliela apjoma darbi</li></ul></article><article class="detail-card" data-spotlight><h3>Silikona un blīvējumu darbi</h3><p>Virtuvei, vannas istabai un citām mitrām zonām.</p><ul><li>Vecā silikona noņemšana</li><li>Jauna silikona uzklāšana</li><li>Savienojumu un malu noblīvēšana</li><li>Blīvējumu vizuāla pārbaude un nomaiņa</li></ul></article><article class="detail-card" data-spotlight><h3>Vienkārši santehnikas darbi</h3><p>Darbiem, kam nav nepieciešama sistēmas pārbūve.</p><ul><li>Sifona tīrīšana vai nomaiņa</li><li>Maisītāja vai dušas detaļu nomaiņa</li><li>Savienojumu pievilkšana un blīvējumu nomaiņa</li><li>Nelielu noplūžu novēršana</li></ul></article></div><div class="note">Elektroinstalācijas darbus un sarežģītu santehnikas sistēmu pārbūvi neveicam. Ja darbs pārsniedz sīka remonta apjomu, par to informējam pirms izpildes.</div></div></section>
 
-    <section class="section-tight"><div class="wrap cta"><div><h2>Aprakstiet nepieciešamo remontdarbu</h2><p>Norādiet adresi, vēlamo laiku un pievienojiet fotoattēlus. Tas ļaus ātrāk saprast darba apjomu, materiālus un iespējamās izmaksas.</p></div><div class="cta-actions"><a class="btn btn-dark" href="tel:+37129752319">Zvanīt</a><a class="btn btn-secondary" href="mailto:anelikasia@gmail.com?subject=S%C4%ABki%20remontdarbi&amp;body=Labdien!%0A%0AAdrese:%20%0AV%C4%93lamais%20laiks:%20%0ADarba%20apraksts:%20%0A">Nosūtīt pieprasījumu</a></div></div></section>
+    <section class="section-tight"><div class="wrap cta"><div><h2>Vai ērtāk pārrunāt pa tālruni?</h2><p>Zvaniet darba laikā. Ja nepieciešams aprēķins pēc remontdarba informācijas, izmantojiet pieteikuma formu.</p></div><div class="cta-actions"><a class="btn btn-dark" href="tel:+37129752319">Zvanīt</a><a class="btn btn-secondary" href="#pieteikums">Aizpildīt formu</a></div></div></section>
   </main>
 
   <footer class="site-footer">
@@ -115,11 +148,12 @@
 </footer>
   <aside class="cookie-banner" data-cookie-banner hidden role="dialog" aria-live="polite" aria-label="Sīkdatņu paziņojums">
   <div class="cookie-symbol" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M38 22a9 9 0 0 1-12-12A16 16 0 1 0 38 22Z"/><circle cx="17" cy="20" r="2.2"/><circle cx="27" cy="29" r="2.2"/><circle cx="16" cy="32" r="1.8"/></svg></div>
-  <div class="cookie-copy"><strong>Sīkdatnes un privātums</strong><p>Vietnē netiek izmantotas analītikas vai reklāmas sīkdatnes. Lai šo paziņojumu pēc apstiprināšanas vairs nerādītu, pārlūkā tiek saglabāta tikai jūsu izvēle.</p><a href="/privatuma-politika/#sikdatnes">Uzzināt vairāk</a></div>
-  <button class="cookie-accept" type="button" data-cookie-accept>Sapratu</button>
+  <div class="cookie-copy"><strong>Sīkdatņu izvēle</strong><p>Ar jūsu piekrišanu izmantojam Google Analytics, lai saprastu, kuras vietnes sadaļas ir noderīgas. Reklāmas un personalizācijas sīkdatnes neizmantojam.</p><a href="/privatuma-politika/#sikdatnes">Uzzināt vairāk</a></div>
+  <button class="cookie-accept" type="button" data-cookie-accept>Atļaut analītiku</button>
 </aside>
   <div class="mobilebar" aria-label="Ātrā saziņa"><a href="tel:+37129752319">Zvanīt</a><a href="mailto:anelikasia@gmail.com?subject=S%C4%ABki%20remontdarbi&amp;body=Labdien!%0A%0AAdrese:%20%0AV%C4%93lamais%20laiks:%20%0ADarba%20apraksts:%20%0A">E-pasts</a></div>
-  <script src="/site.js?v=13" defer></script>
-  <script src="/footer-cookie.js?v=1" defer></script>
+  <script src="/site.js?v=14" defer></script>
+  <script src="/footer-cookie.js?v=2" defer></script>
+  <script src="/lead-form.js?v=2" defer></script>
 </body>
 </html>
