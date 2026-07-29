@@ -170,26 +170,32 @@
   opacity:0;
   pointer-events:none;
 }
-.lead-file-button{
+.lead-field .lead-file-button{
   flex:0 0 auto;
   min-height:38px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   padding:0 13px;
+  border:1px solid #07506f;
   border-radius:9px;
   color:#fff;
-  background:var(--navy);
+  background:#0b6f99;
+  box-shadow:0 7px 16px rgba(11,111,153,.2);
   font-size:12px;
   font-weight:800;
   cursor:pointer;
-  transition:background .2s,transform .2s;
+  transition:background .2s,border-color .2s,box-shadow .2s,transform .2s;
 }
-.lead-file-button:hover{
-  background:var(--navy-2);
+.lead-field .lead-file-button:hover{
+  color:#fff;
+  border-color:#063f5a;
+  background:#085879;
+  box-shadow:0 9px 20px rgba(8,88,121,.26);
   transform:translateY(-1px);
 }
 .lead-file-input:focus-visible + .lead-file-button{
+  color:#fff;
   outline:3px solid rgba(21,155,209,.28);
   outline-offset:2px;
 }
