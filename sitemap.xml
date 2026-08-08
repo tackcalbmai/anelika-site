@@ -2,9 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.anelika.lv/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.anelika.lv/uzkopsana/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.anelika.lv/telpu-uzkopsana-jelgava/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.anelika.lv/biroju-uzkopsana/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.anelika.lv/general-uzkopsana/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.anelika.lv/uzkopsana-pec-remonta/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.anelika.lv/logu-mazgasana/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.anelika.lv/teritoriju-kopsana/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.anelika.lv/zales-plausana/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.anelika.lv/siki-remontdarbi/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.anelika.lv/saimnieciskie-darbi/</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.anelika.lv/kontakti/</loc><lastmod>2026-08-08</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.anelika.lv/privatuma-politika/</loc><lastmod>2026-08-08</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>
